@@ -1,0 +1,28 @@
+{
+  "name": "litle",
+  "version": "0.1.1",
+  "description": "Litle & Co API Wrapper",
+  "homepage": "",
+  "author": "Mike Marcacci<mike.marcacci@thecontrolgroup.com> (http://thecontrolgroup.com/)",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs:": "",
+  "engines": {
+    "node": ">= v0.10.0"
+  },
+  "main": "lib/Litle.js",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "~1.18.2"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "xml2js": "^0.4.2"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec test/litle.js"
+  }
+}
