@@ -1,6 +1,6 @@
 'use strict';
 
-var litle = require('../lib/litle.js')({
+var litle = require('../lib/Litle.js')({
 	user: 'test_user',
 	password: 'test_password',
 	url: 'https://www.testlitle.com/sandbox/communicator/online'
@@ -10,7 +10,25 @@ var assert = require('chai').assert;
 describe('Litle', function() {
 
 	var token, valid, invalid;
-	
+
+	describe('#registerTokenRequest', function() {
+		it('succeeds with a valid card', function(done) {
+			litle.litleOnlineRequest.registerTokenRequest({
+				$: {
+					id: 'ididid',
+					reportGroup: 'rtpGrp',
+				},
+				accountNumber: "4100280190123000"
+			}, function(err, res){
+				if (err) return done(err);
+				var tokenResponse = res.registerTokenResponse;
+				assert.equal(tokenResponse.response, '000');
+				assert.equal(tokenResponse.litleToken, '1111222233334444');
+				done();
+			});
+		});
+	});
+
 	describe('#authorization', function() {
 		it('succeeds with a valid card', function(done) {
 			litle.litleOnlineRequest.authorization({
