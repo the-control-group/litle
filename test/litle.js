@@ -135,6 +135,10 @@ describe('Litle', function() {
 				orderSource: 'ecommerce',
 				token: {
 					litleToken: token
+				},
+				customBilling: {
+					phone: '18008008378',
+					url: 'test.com'
 				}
 			}, function(err, res){
 				assert.isNull(err);
@@ -156,6 +160,10 @@ describe('Litle', function() {
 				orderSource: 'ecommerce',
 				token: {
 					litleToken: token
+				},
+				customBilling: {
+					phone: '18008008378',
+					url: 'test.com'
 				}
 			}, function(err, res){
 				assert.isNull(err);
