@@ -14,10 +14,8 @@ describe('Litle', function() {
 	describe('#registerTokenRequest', function() {
 		it('succeeds with a valid card', function(done) {
 			litle.litleOnlineRequest.registerTokenRequest({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
 				accountNumber: "4100280190123000"
 			}, function(err, res){
 				if (err) return done(err);
@@ -32,11 +30,9 @@ describe('Litle', function() {
 	describe('#authorization', function() {
 		it('succeeds with a valid card', function(done) {
 			litle.litleOnlineRequest.authorization({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				orderId: '1',
 				amount: 50,
 				orderSource: 'ecommerce',
@@ -61,11 +57,9 @@ describe('Litle', function() {
 
 		it('fails with an invalid card', function(done) {
 			litle.litleOnlineRequest.authorization({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				orderId: '1',
 				amount: 50,
 				orderSource: 'ecommerce',
@@ -90,11 +84,9 @@ describe('Litle', function() {
 	describe('#authorizationReversal', function() {
 		it('succeeds with a valid transaction', function(done) {
 			litle.litleOnlineRequest.authorizationReversal({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				litleTxnId: valid,
 				amount: 50,
 			}, function(err, res){
@@ -106,11 +98,9 @@ describe('Litle', function() {
 		});
 		it('fails with an invalid transaction', function(done) {
 			litle.litleOnlineRequest.authorizationReversal({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				litleTxnId: invalid,
 				amount: 50,
 			}, function(err, res){
@@ -125,11 +115,9 @@ describe('Litle', function() {
 	describe('#sale', function() {
 		it('succeeds with token', function(done) {
 			litle.litleOnlineRequest.sale({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				orderId: '1',
 				amount: 10000,
 				orderSource: 'ecommerce',
@@ -150,11 +138,9 @@ describe('Litle', function() {
 		});
 		it('tokens can be used multiple times', function(done) {
 			litle.litleOnlineRequest.sale({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				orderId: '1',
 				amount: 10000,
 				orderSource: 'ecommerce',
@@ -177,11 +163,9 @@ describe('Litle', function() {
 	describe('#credit (refund)', function() {
 		it('succeeds with a valid transaction', function(done) {
 			litle.litleOnlineRequest.credit({
-				$: {
-					id: 'ididid',
-					reportGroup: 'rtpGrp',
-					customerId: '12345'
-				},
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				customerId: '12345',
 				litleTxnId: valid,
 				amount: 10000,
 				token: {
