@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="testxsd" xmlns:xp="testxsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:simpleType name="string25Type">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="extensionType">
+        <xs:attribute name="extId" type="xp:string25Type"/>
+    </xs:complexType>
+
+    <xs:element name="exampleElement">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="xp:extensionType">
+                    <xs:sequence>
+                        <xs:choice>
+                            <xs:sequence>
+                                <xs:element name="exampleId" type="xp:string25Type"/>
+                                <xs:element name="constant" type="xp:string25Type" minOccurs="0"/>
+                            </xs:sequence>
+                            <xs:sequence>
+                                <xs:element name="exampleName" type="xp:string25Type"/>
+                                <xs:element name="constant" type="xp:string25Type" minOccurs="0"/>
+                            </xs:sequence>
+                        </xs:choice>
+                        <xs:element name="aaa" type="xp:string25Type"/>
+                        <xs:element name="bbb" type="xp:string25Type" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,14 +1,11 @@
 "use strict";
 
-var util = require('util');
-var litle = require('./lib/litle.js')({});
+var litle = require('./lib/Litle.js')({});
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '1',
 	amount: 10010,
 	orderSource: 'ecommerce',
@@ -32,11 +29,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '2',
 	amount: 20020,
 	orderSource: 'ecommerce',
@@ -62,11 +57,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '3',
 	amount: 30030,
 	orderSource: 'ecommerce',
@@ -90,11 +83,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '4',
 	amount: 40040,
 	orderSource: 'ecommerce',
@@ -117,11 +108,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '5',
 	amount: 50050,
 	orderSource: 'ecommerce',
@@ -138,11 +127,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '6',
 	amount: 60060,
 	orderSource: 'ecommerce',
@@ -166,11 +153,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '7',
 	amount: 70070,
 	orderSource: 'ecommerce',
@@ -194,11 +179,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '8',
 	amount: 80080,
 	orderSource: 'ecommerce',
@@ -222,11 +205,9 @@ litle.litleOnlineRequest.sale({
 
 
 litle.litleOnlineRequest.sale({
-	$: {
-		id: 'Sale Id',
-		reportGroup: 'UI Report Group',
-		customerId: 'Customer Id'
-	},
+	id: 'Sale Id',
+	reportGroup: 'UI Report Group',
+	customerId: 'Customer Id',
 	orderId: '9',
 	amount: 90090,
 	orderSource: 'ecommerce',

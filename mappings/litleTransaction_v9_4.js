@@ -944,77 +944,91 @@ var litleTransaction_v9_4_Module_Factory = function () {
         localName: 'Credit',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'rest',
-            required: true,
-            maxOccurs: 17,
-            collection: true,
-            mixed: false,
-            allowDom: false,
-            elementTypeInfos: [{
-                elementName: 'card',
-                typeInfo: '.CardType'
-              }, {
-                elementName: 'customBilling',
-                typeInfo: '.CustomBilling'
-              }, {
-                elementName: 'amount',
-                typeInfo: 'Integer'
-              }, {
-                elementName: 'amexAggregatorData',
-                typeInfo: '.AmexAggregatorData'
-              }, {
-                elementName: 'secondaryAmount',
-                typeInfo: 'Integer'
-              }, {
-                elementName: 'taxType'
-              }, {
-                elementName: 'surchargeAmount',
-                typeInfo: 'Integer'
-              }, {
-                elementName: 'token',
-                typeInfo: '.CardTokenType'
-              }, {
-                elementName: 'mpos',
-                typeInfo: '.MposType'
-              }, {
-                elementName: 'payPalNotes'
-              }, {
-                elementName: 'litleTxnId',
-                typeInfo: 'Long'
-              }, {
-                elementName: 'billToAddress',
-                typeInfo: '.Contact'
-              }, {
-                elementName: 'pos',
-                typeInfo: '.Pos'
-              }, {
-                elementName: 'paypal',
-                typeInfo: '.Credit.Paypal'
-              }, {
-                elementName: 'orderId'
-              }, {
-                elementName: 'orderSource'
-              }, {
-                elementName: 'actionReason'
-              }, {
-                elementName: 'billMeLaterRequest',
-                typeInfo: '.BillMeLaterRequest'
-              }, {
-                elementName: 'processingInstructions',
-                typeInfo: '.ProcessingInstructions'
-              }, {
-                elementName: 'paypage',
-                typeInfo: '.CardPaypageType'
-              }, {
-                elementName: 'merchantData',
-                typeInfo: '.MerchantDataType'
-              }, {
-                elementName: 'enhancedData',
-                typeInfo: '.EnhancedData'
-              }],
-            type: 'elementRefs'
-          }]
+        propertyInfos: [
+          {
+            name: 'litleTxnId',
+            typeInfo: 'Long'
+          },
+          {
+            name: 'orderId'
+          },
+          {
+            name: 'amount',
+            typeInfo: 'Integer'
+          },
+          {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          },
+          {
+            name: 'surchargeAmount',
+            typeInfo: 'Integer'
+          },
+          {
+            name: 'orderSource'
+          },
+          {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          },
+          {
+            name: 'mpos',
+            typeInfo: '.MposType'
+          },
+          {
+            name: 'card',
+            typeInfo: '.CardType'
+          },
+          {
+            name: 'token',
+            typeInfo: '.CardTokenType'
+          },
+          {
+            name: 'paypage',
+            typeInfo: '.CardPaypageType'
+          },
+          {
+            name: 'paypal',
+            typeInfo: '.Credit.Paypal'
+          },
+          {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          },
+          {
+            name: 'taxType'
+          },
+          {
+            name: 'billMeLaterRequest',
+            typeInfo: '.BillMeLaterRequest'
+          },
+          {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          },
+          {
+            name: 'processingInstructions',
+            typeInfo: '.ProcessingInstructions'
+          },
+          {
+            name: 'pos',
+            typeInfo: '.Pos'
+          },
+          {
+            name: 'amexAggregatorData',
+            typeInfo: '.AmexAggregatorData'
+          },
+          {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          },
+          {
+            name: 'payPalNotes'
+          },
+          {
+            name: 'actionReason'
+          },
+        ]
       }, {
         localName: 'CustomBilling',
         typeName: null,

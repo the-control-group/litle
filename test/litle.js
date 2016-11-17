@@ -3,13 +3,15 @@
 var litle = require('../lib/Litle.js')({
 	user: 'test_user',
 	password: 'test_password',
-	url: 'https://www.testlitle.com/sandbox/communicator/online'
+	url: 'https://www.testlitle.com/sandbox/communicator/online',
+	version: '9.4'
 });
 var assert = require('chai').assert;
 
 describe('Litle', function() {
 
-	var token, valid, invalid;
+	var token;
+	var validAuth, validCapture, validSale;
 
 	describe('#registerTokenRequest', function() {
 		it('succeeds with a valid card', function(done) {
@@ -43,13 +45,13 @@ describe('Litle', function() {
 					cardValidationNum: '123'
 				}
 			}, function(err, res){
-				assert.isNull(err);
+				if(err) return done(err);
 				var authResponse = res.authorizationResponse;
 				var tokenResponse = res.authorizationResponse.tokenResponse;
 				assert.equal(authResponse.response, '000');
 				assert.equal(tokenResponse.tokenResponseCode, '801');
 				assert.isDefined(tokenResponse.litleToken);
-				valid = authResponse.litleTxnId;
+				validAuth = authResponse.litleTxnId;
 				token = tokenResponse.litleToken;
 				done();
 			});
@@ -70,43 +72,73 @@ describe('Litle', function() {
 					cardValidationNum: '123'
 				}
 			}, function(err, res){
-				assert.isNull(err);
+				if(err) return done(err);
 				var authResponse = res.authorizationResponse;
 				var tokenResponse = res.authorizationResponse.tokenResponse;
 				assert.equal(authResponse.response, '110');
 				assert.isUndefined(tokenResponse);
-				invalid = authResponse.litleTxnId;
 				done();
 			});
 		});
 	});
 
-	describe('#authorizationReversal', function() {
+	describe('#authReversal', function() {
 		it('succeeds with a valid transaction', function(done) {
-			litle.litleOnlineRequest.authorizationReversal({
+			litle.litleOnlineRequest.authReversal({
 				id: 'ididid',
 				reportGroup: 'rtpGrp',
 				customerId: '12345',
-				litleTxnId: valid,
+				litleTxnId: validAuth,
 				amount: 50,
 			}, function(err, res){
-				assert.isNull(err);
+				if(err) return done(err);
 				var authReversalResponse = res.authReversalResponse;
 				assert.equal(authReversalResponse.response, '000');
 				done();
 			});
 		});
-		it('fails with an invalid transaction', function(done) {
-			litle.litleOnlineRequest.authorizationReversal({
+	});
+
+	describe('#capture', function() {
+		before(function(done) {
+			litle.litleOnlineRequest.authorization({
 				id: 'ididid',
 				reportGroup: 'rtpGrp',
 				customerId: '12345',
-				litleTxnId: invalid,
+				orderId: '1',
 				amount: 50,
+				orderSource: 'ecommerce',
+				card: {
+					type: 'MC',
+					number: '4100280190123000',
+					expDate: '1112',
+					cardValidationNum: '123'
+				}
 			}, function(err, res){
-				assert.isNull(err);
-				var authReversalResponse = res.authReversalResponse;
-				assert.equal(authReversalResponse.response, '110');
+				if(err) return done(err);
+				var authResponse = res.authorizationResponse;
+				var tokenResponse = res.authorizationResponse.tokenResponse;
+				assert.equal(authResponse.response, '000');
+				assert.equal(tokenResponse.tokenResponseCode, '801');
+				assert.isDefined(tokenResponse.litleToken);
+				validCapture = authResponse.litleTxnId;
+				token = tokenResponse.litleToken;
+				done();
+			});
+		});
+
+		it('succeeds with a valid auth', function(done) {
+			litle.litleOnlineRequest.authorization({
+				id: 'ididid',
+				reportGroup: 'rtpGrp',
+				litleTxnId: validCapture,
+			}, function(err, res){
+				if(err) return done(err);
+				var authResponse = res.authorizationResponse;
+				var tokenResponse = res.authorizationResponse.tokenResponse;
+				assert.equal(authResponse.response, '000');
+				assert.isUndefined(tokenResponse);
+				validCapture = authResponse.litleTxnId;
 				done();
 			});
 		});
@@ -126,13 +158,13 @@ describe('Litle', function() {
 				},
 				customBilling: {
 					phone: '18008008378',
-					url: 'test.com'
+					descriptor: 'TEST'
 				}
 			}, function(err, res){
-				assert.isNull(err);
+				if(err) return done(err);
 				var saleResponse = res.saleResponse;
 				assert.equal(saleResponse.response, '000');
-				valid = saleResponse.litleTxnId;
+				validSale = saleResponse.litleTxnId;
 				done();
 			});
 		});
@@ -149,10 +181,10 @@ describe('Litle', function() {
 				},
 				customBilling: {
 					phone: '18008008378',
-					url: 'test.com'
+					descriptor: 'TEST'
 				}
 			}, function(err, res){
-				assert.isNull(err);
+				if(err) return done(err);
 				var saleResponse = res.saleResponse;
 				assert.equal(saleResponse.response, '000');
 				done();
@@ -160,18 +192,15 @@ describe('Litle', function() {
 		});
 	});
 
-	describe('#credit (refund)', function() {
+	describe('#credit', function() {
 		it('succeeds with a valid transaction', function(done) {
 			litle.litleOnlineRequest.credit({
 				id: 'ididid',
 				reportGroup: 'rtpGrp',
-				customerId: '12345',
-				litleTxnId: valid,
-				amount: 10000,
-				token: {
-					litleToken: token
-				}
+				litleTxnId: '3457689986756',
+				amount: 10000
 			}, function(err, res){
+				if(err) return done(err);
 				var creditResponse = res.creditResponse;
 				assert.equal(creditResponse.response, '000');
 				done();
