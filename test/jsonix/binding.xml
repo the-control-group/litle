@@ -1,0 +1,28 @@
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+    jaxb:extensionBindingPrefixes="xjc">
+
+    <!--
+        This is a solution to the choice collision issue described here:
+        https://github.com/highsource/jsonix-schema-compiler/issues/75
+
+        It may not be the best solution, especially since it has global
+        consequences. However, it does appear to work for our use cases.
+    -->
+    <jaxb:globalBindings generateElementProperty="false"> <xjc:simple /> </jaxb:globalBindings>
+
+
+    <!--
+        This is much more like the solution proposed by @highsource, which
+        renames the colliding properties on a case-by-case basis.
+    -->
+    <!--
+    <jaxb:bindings schemaLocation="testxsd.xsd" 
+        node="/xs:schema">
+        <jaxb:bindings node="xs:element[@name='exampleElement']/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:sequence[xs:element[@name='exampleId']]/xs:element[@name='constant']">
+            <jaxb:property name="RenamedConstantToAvoidCollision" />
+        </jaxb:bindings>
+    </jaxb:bindings>
+    -->
+</jaxb:bindings>

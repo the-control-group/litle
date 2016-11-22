@@ -2,4 +2,4 @@
 
 These files are copied directly from [https://github.com/LitleCo/litle-xml](https://github.com/LitleCo/litle-xml).
 
-See the `README.md` at the root of this project to learn more.
+See the [`README.md`](../README.md) at the root of this project to learn more.

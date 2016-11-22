@@ -18,6 +18,9 @@ fs.readdirSync('./xsd')
 			// generate a compliant package name
 			'-p', `${pkgName}_v${pkgVersion.replace('.', '_')}`,
 
+			// use jaxb bindings for the correct version
+			'-b', `bindings/v${pkgVersion.replace('.', '_')}.xml`,
+
 			// only log errors
 			'-logLevel', 'ERROR',
 

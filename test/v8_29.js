@@ -4,11 +4,11 @@ var litle = require('../lib/Litle.js')({
 	user: 'test_user',
 	password: 'test_password',
 	url: 'https://www.testlitle.com/sandbox/communicator/online',
-	version: '9.4'
+	version: '8.29'
 });
 var assert = require('chai').assert;
 
-describe('Litle', function() {
+describe('Litle v8.29', function() {
 
 	var token;
 	var validAuth, validCapture, validSale;

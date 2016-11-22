@@ -1,62 +1,41 @@
 var testxsd_Module_Factory = function () {
   var testxsd = {
-  name: 'testxsd',
-  defaultElementNamespaceURI: 'testxsd',
-  typeInfos: [
-    {
-      localName: 'ExampleElement',
-      typeName: null,
-      baseTypeInfo: '.ExtensionType',
-      propertyInfos: [
-        { name: 'aaa' },
-        { name: 'exampleId' },
-        { name: 'bbb' },
-        { name: 'constant' },
-        { name: 'exampleName' }
-      ]
-    },
-    {
-      localName: 'ExtensionType',
-      typeName: 'extensionType',
-      propertyInfos: [
-        {
-          name: 'extId',
-          attributeName:
-          {
-            localPart: 'extId'
-          },
-          type: 'attribute'
-        }
-      ]
-    }
-  ],
-  elementInfos: [
-    {
-      elementName: 'exampleName',
-      scope: '.ExampleElement'
-    },
-    {
-      elementName: 'bbb',
-      scope: '.ExampleElement'
-    },
-    {
-      elementName: 'exampleId',
-      scope: '.ExampleElement'
-    },
-    {
-      elementName: 'constant',
-      scope: '.ExampleElement'
-    },
-    {
-      elementName: 'aaa',
-      scope: '.ExampleElement'
-    },
-    {
-      typeInfo: '.ExampleElement',
-      elementName: 'exampleElement'
-    }
-  ]
-};
+    name: 'testxsd',
+    defaultElementNamespaceURI: 'testxsd',
+    typeInfos: [{
+        localName: 'ExtensionType',
+        typeName: 'extensionType',
+        propertyInfos: [{
+            name: 'extId',
+            attributeName: {
+              localPart: 'extId'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'ExampleElement',
+        typeName: null,
+        baseTypeInfo: '.ExtensionType',
+        propertyInfos: [{
+            name: 'exampleName',
+            required: true
+          }, {
+            name: 'exampleId',
+            required: true
+          }, {
+            name: 'constant'
+          }, {
+            name: 'aaa',
+            required: true
+          }, {
+            name: 'bbb'
+          }]
+      }],
+    elementInfos: [{
+        elementName: 'exampleElement',
+        typeInfo: '.ExampleElement'
+      }]
+  };
   return {
     testxsd: testxsd
   };
