@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="testxsd" xmlns:xp="testxsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:simpleType name="longIdType">
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="19" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="exampleElement" type="xp:longIdType"></xs:element>
+</xs:schema>

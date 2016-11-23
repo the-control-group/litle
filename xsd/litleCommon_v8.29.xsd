@@ -48,8 +48,8 @@
     </xs:simpleType>
 
     <xs:simpleType name="litleIdType">
-        <xs:restriction base="xs:long">
-            <xs:totalDigits value="19" />
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="19" />
         </xs:restriction>
     </xs:simpleType>
 

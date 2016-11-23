@@ -18,7 +18,7 @@
         renames the colliding properties on a case-by-case basis.
     -->
     <!--
-    <jaxb:bindings schemaLocation="testxsd.xsd" 
+    <jaxb:bindings schemaLocation="schema.xsd" 
         node="/xs:schema">
         <jaxb:bindings node="xs:element[@name='exampleElement']/xs:complexType/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:sequence[xs:element[@name='exampleId']]/xs:element[@name='constant']">
             <jaxb:property name="RenamedConstantToAvoidCollision" />
