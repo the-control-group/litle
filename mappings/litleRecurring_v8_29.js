@@ -3,93 +3,52 @@ var litleRecurring_v8_29_Module_Factory = function () {
     name: 'litleRecurring_v8_29',
     defaultElementNamespaceURI: 'http:\/\/www.litle.com\/schema',
     typeInfos: [{
-        localName: 'RecurringSubscriptionType',
-        typeName: 'recurringSubscriptionType',
+        localName: 'UpdateAddOnType',
+        typeName: 'updateAddOnType',
         propertyInfos: [{
-            name: 'planCode',
+            name: 'addOnCode',
             required: true
           }, {
-            name: 'numberOfPayments',
+            name: 'name'
+          }, {
+            name: 'amount',
             typeInfo: 'Integer'
           }, {
             name: 'startDate',
             typeInfo: 'Date'
           }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'createDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createDiscount',
-            typeInfo: '.CreateDiscountType'
-          }, {
-            name: 'createAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createAddOn',
-            typeInfo: '.CreateAddOnType'
+            name: 'endDate',
+            typeInfo: 'Date'
           }]
       }, {
-        localName: 'DeleteAddOnType',
-        typeName: 'deleteAddOnType',
-        propertyInfos: [{
-            name: 'addOnCode',
-            required: true
-          }]
-      }, {
-        localName: 'UpdatePlan',
+        localName: 'CreatePlan',
         typeName: null,
         baseTypeInfo: '.RecurringTransactionType',
         propertyInfos: [{
             name: 'planCode',
             required: true
           }, {
+            name: 'name',
+            required: true
+          }, {
+            name: 'description'
+          }, {
+            name: 'intervalType',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'numberOfPayments',
+            typeInfo: 'Integer'
+          }, {
+            name: 'trialNumberOfIntervals',
+            typeInfo: 'Integer'
+          }, {
+            name: 'trialIntervalType'
+          }, {
             name: 'active',
-            required: true,
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'MposType',
-        typeName: 'mposType',
-        propertyInfos: [{
-            name: 'ksn',
-            required: true
-          }, {
-            name: 'formatId',
-            required: true
-          }, {
-            name: 'encryptedTrack',
-            required: true
-          }, {
-            name: 'track1Status',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'track2Status',
-            required: true,
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'RecurringRequestType',
-        typeName: 'recurringRequestType',
-        propertyInfos: [{
-            name: 'subscription',
-            required: true,
-            typeInfo: '.RecurringSubscriptionType'
-          }]
-      }, {
-        localName: 'LitleInternalRecurringRequestType',
-        typeName: 'litleInternalRecurringRequestType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }, {
-            name: 'recurringTxnId',
-            required: true
-          }, {
-            name: 'finalPayment',
-            required: true,
             typeInfo: 'Boolean'
           }]
       }, {
@@ -98,8 +57,148 @@ var litleRecurring_v8_29_Module_Factory = function () {
         baseTypeInfo: '.RecurringTransactionType',
         propertyInfos: [{
             name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'TokenResponseType',
+        typeName: 'tokenResponseType',
+        propertyInfos: [{
+            name: 'litleToken'
+          }, {
+            name: 'tokenResponseCode',
+            required: true
+          }, {
+            name: 'tokenMessage',
+            required: true
+          }, {
+            name: 'type'
+          }, {
+            name: 'bin'
+          }, {
+            name: 'eCheckAccountSuffix'
+          }]
+      }, {
+        localName: 'CreateAddOnType',
+        typeName: 'createAddOnType',
+        propertyInfos: [{
+            name: 'addOnCode',
+            required: true
+          }, {
+            name: 'name',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            required: true,
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            required: true,
+            typeInfo: 'Date'
+          }]
+      }, {
+        localName: 'AdvancedFraudChecksType',
+        typeName: 'advancedFraudChecksType',
+        propertyInfos: [{
+            name: 'threatMetrixSessionId',
+            required: true,
+            typeInfo: 'Token'
+          }]
+      }, {
+        localName: 'CreatePlanResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'planCode',
             required: true
           }]
+      }, {
+        localName: 'DeleteDiscountType',
+        typeName: 'deleteDiscountType',
+        propertyInfos: [{
+            name: 'discountCode',
+            required: true
+          }]
+      }, {
+        localName: 'CancelSubscriptionResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'CardTokenType',
+        typeName: 'cardTokenType',
+        propertyInfos: [{
+            name: 'litleToken',
+            required: true
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'type'
+          }]
+      }, {
+        localName: 'UpdateDiscountType',
+        typeName: 'updateDiscountType',
+        propertyInfos: [{
+            name: 'discountCode',
+            required: true
+          }, {
+            name: 'name'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            typeInfo: 'Date'
+          }]
+      }, {
+        localName: 'LitleInternalRecurringRequestType',
+        typeName: 'litleInternalRecurringRequestType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'recurringTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'finalPayment',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'RecurringResponseType',
+        typeName: 'recurringResponseType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'responseCode',
+            required: true
+          }, {
+            name: 'responseMessage',
+            required: true
+          }, {
+            name: 'recurringTxnId',
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'RecurringTransactionType',
+        typeName: 'recurringTransactionType'
       }, {
         localName: 'CardType',
         typeName: 'cardType',
@@ -116,16 +215,6 @@ var litleRecurring_v8_29_Module_Factory = function () {
           }, {
             name: 'cardValidationNum'
           }]
-      }, {
-        localName: 'DeleteDiscountType',
-        typeName: 'deleteDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }]
-      }, {
-        localName: 'RecurringTransactionType',
-        typeName: 'recurringTransactionType'
       }, {
         localName: 'BillToAddress',
         typeName: 'contact',
@@ -163,7 +252,8 @@ var litleRecurring_v8_29_Module_Factory = function () {
         typeName: 'recurringTransactionResponseType',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'response',
             required: true
@@ -176,12 +266,26 @@ var litleRecurring_v8_29_Module_Factory = function () {
             typeInfo: 'DateTime'
           }]
       }, {
+        localName: 'CardPaypageType',
+        typeName: 'cardPaypageType',
+        propertyInfos: [{
+            name: 'paypageRegistrationId',
+            required: true
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'type'
+          }]
+      }, {
         localName: 'UpdateSubscription',
         typeName: null,
         baseTypeInfo: '.RecurringTransactionType',
         propertyInfos: [{
             name: 'subscriptionId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'planCode'
           }, {
@@ -240,139 +344,6 @@ var litleRecurring_v8_29_Module_Factory = function () {
             typeInfo: '.DeleteAddOnType'
           }]
       }, {
-        localName: 'CancelSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }]
-      }, {
-        localName: 'CreatePlanResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'planCode',
-            required: true
-          }]
-      }, {
-        localName: 'CardTokenType',
-        typeName: 'cardTokenType',
-        propertyInfos: [{
-            name: 'litleToken',
-            required: true
-          }, {
-            name: 'expDate'
-          }, {
-            name: 'cardValidationNum'
-          }, {
-            name: 'type'
-          }]
-      }, {
-        localName: 'CardPaypageType',
-        typeName: 'cardPaypageType',
-        propertyInfos: [{
-            name: 'paypageRegistrationId',
-            required: true
-          }, {
-            name: 'expDate'
-          }, {
-            name: 'cardValidationNum'
-          }, {
-            name: 'type'
-          }]
-      }, {
-        localName: 'UpdateDiscountType',
-        typeName: 'updateDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }, {
-            name: 'name'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'AdvancedFraudChecksType',
-        typeName: 'advancedFraudChecksType',
-        propertyInfos: [{
-            name: 'threatMetrixSessionId',
-            required: true,
-            typeInfo: 'Token'
-          }]
-      }, {
-        localName: 'RecurringResponseType',
-        typeName: 'recurringResponseType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }, {
-            name: 'responseCode',
-            required: true
-          }, {
-            name: 'responseMessage',
-            required: true
-          }, {
-            name: 'recurringTxnId'
-          }]
-      }, {
-        localName: 'TokenResponseType',
-        typeName: 'tokenResponseType',
-        propertyInfos: [{
-            name: 'litleToken'
-          }, {
-            name: 'tokenResponseCode',
-            required: true
-          }, {
-            name: 'tokenMessage',
-            required: true
-          }, {
-            name: 'type'
-          }, {
-            name: 'bin'
-          }, {
-            name: 'eCheckAccountSuffix'
-          }]
-      }, {
-        localName: 'Authentication',
-        typeName: null,
-        propertyInfos: [{
-            name: 'user',
-            required: true
-          }, {
-            name: 'password',
-            required: true
-          }]
-      }, {
-        localName: 'CreateAddOnType',
-        typeName: 'createAddOnType',
-        propertyInfos: [{
-            name: 'addOnCode',
-            required: true
-          }, {
-            name: 'name',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            required: true,
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            required: true,
-            typeInfo: 'Date'
-          }]
-      }, {
         localName: 'AdvancedFraudResultsType',
         typeName: 'advancedFraudResultsType',
         propertyInfos: [{
@@ -387,35 +358,59 @@ var litleRecurring_v8_29_Module_Factory = function () {
             elementName: 'triggeredRule'
           }]
       }, {
-        localName: 'CreatePlan',
+        localName: 'UpdateSubscriptionResponse',
         typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }]
+      }, {
+        localName: 'RecurringRequestType',
+        typeName: 'recurringRequestType',
+        propertyInfos: [{
+            name: 'subscription',
+            required: true,
+            typeInfo: '.RecurringSubscriptionType'
+          }]
+      }, {
+        localName: 'DeleteAddOnType',
+        typeName: 'deleteAddOnType',
+        propertyInfos: [{
+            name: 'addOnCode',
+            required: true
+          }]
+      }, {
+        localName: 'RecurringSubscriptionType',
+        typeName: 'recurringSubscriptionType',
         propertyInfos: [{
             name: 'planCode',
             required: true
           }, {
-            name: 'name',
-            required: true
-          }, {
-            name: 'description'
-          }, {
-            name: 'intervalType',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
             name: 'numberOfPayments',
             typeInfo: 'Integer'
           }, {
-            name: 'trialNumberOfIntervals',
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'amount',
             typeInfo: 'Integer'
           }, {
-            name: 'trialIntervalType'
+            name: 'createDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createDiscount',
+            typeInfo: '.CreateDiscountType'
           }, {
-            name: 'active',
-            typeInfo: 'Boolean'
+            name: 'createAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createAddOn',
+            typeInfo: '.CreateAddOnType'
           }]
       }, {
         localName: 'CreateDiscountType',
@@ -440,33 +435,14 @@ var litleRecurring_v8_29_Module_Factory = function () {
             typeInfo: 'Date'
           }]
       }, {
-        localName: 'UpdateAddOnType',
-        typeName: 'updateAddOnType',
-        propertyInfos: [{
-            name: 'addOnCode',
-            required: true
-          }, {
-            name: 'name'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'UpdateSubscriptionResponse',
+        localName: 'Authentication',
         typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
         propertyInfos: [{
-            name: 'subscriptionId',
+            name: 'user',
             required: true
           }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
+            name: 'password',
+            required: true
           }]
       }, {
         localName: 'UpdatePlanResponse',
@@ -477,74 +453,107 @@ var litleRecurring_v8_29_Module_Factory = function () {
             required: true
           }]
       }, {
-        type: 'enumInfo',
-        localName: 'CurrencyCodeEnum',
-        values: ['AUD', 'CAD', 'CHF', 'DKK', 'EUR', 'GBP', 'HKD', 'JPY', 'NOK', 'NZD', 'SEK', 'SGD', 'USD']
+        localName: 'UpdatePlan',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }, {
+            name: 'active',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
       }, {
-        type: 'enumInfo',
-        localName: 'IntervalTypeEnum',
-        values: ['ANNUAL', 'SEMIANNUAL', 'QUARTERLY', 'MONTHLY', 'WEEKLY']
+        localName: 'MposType',
+        typeName: 'mposType',
+        propertyInfos: [{
+            name: 'ksn',
+            required: true
+          }, {
+            name: 'formatId',
+            required: true
+          }, {
+            name: 'encryptedTrack',
+            required: true
+          }, {
+            name: 'track1Status',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'track2Status',
+            required: true,
+            typeInfo: 'Int'
+          }]
       }, {
         type: 'enumInfo',
         localName: 'CountryTypeEnum',
         values: ['USA', 'AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'TL', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KP', 'KR', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MK', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'AN', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'RE', 'RO', 'RU', 'RW', 'BL', 'KN', 'LC', 'MF', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'SC', 'SL', 'SG', 'SX', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'ES', 'LK', 'SH', 'PM', 'SD', 'SR', 'SJ', 'SZ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'US', 'UM', 'UY', 'UZ', 'VU', 'VA', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW', 'RS', 'ME', 'SS']
       }, {
         type: 'enumInfo',
-        localName: 'TrialIntervalTypeEnum',
-        values: ['MONTH', 'DAY']
+        localName: 'CurrencyCodeEnum',
+        values: ['AUD', 'CAD', 'CHF', 'DKK', 'EUR', 'GBP', 'HKD', 'JPY', 'NOK', 'NZD', 'SEK', 'SGD', 'USD']
       }, {
         type: 'enumInfo',
         localName: 'IIASFlagType',
         values: ['Y']
       }, {
         type: 'enumInfo',
+        localName: 'IntervalTypeEnum',
+        values: ['ANNUAL', 'SEMIANNUAL', 'QUARTERLY', 'MONTHLY', 'WEEKLY']
+      }, {
+        type: 'enumInfo',
+        localName: 'TrialIntervalTypeEnum',
+        values: ['MONTH', 'DAY']
+      }, {
+        type: 'enumInfo',
         localName: 'GovtTaxTypeEnum',
         values: ['payment', 'fee']
       }],
     elementInfos: [{
+        elementName: 'recurringTransaction',
+        typeInfo: '.RecurringTransactionType'
+      }, {
+        elementName: 'updatePlanResponse',
+        typeInfo: '.UpdatePlanResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        elementName: 'authentication',
+        typeInfo: '.Authentication'
+      }, {
+        elementName: 'createPlanResponse',
+        typeInfo: '.CreatePlanResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        elementName: 'updateSubscription',
+        typeInfo: '.UpdateSubscription',
+        substitutionHead: 'recurringTransaction'
+      }, {
+        elementName: 'billToAddress',
+        typeInfo: '.BillToAddress'
+      }, {
         elementName: 'recurringTransactionResponse',
         typeInfo: '.RecurringTransactionResponseType'
       }, {
-        elementName: 'cancelSubscription',
-        typeInfo: '.CancelSubscription',
+        elementName: 'cancelSubscriptionResponse',
+        typeInfo: '.CancelSubscriptionResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        elementName: 'updateSubscriptionResponse',
+        typeInfo: '.UpdateSubscriptionResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        elementName: 'updatePlan',
+        typeInfo: '.UpdatePlan',
         substitutionHead: 'recurringTransaction'
       }, {
         elementName: 'createPlan',
         typeInfo: '.CreatePlan',
         substitutionHead: 'recurringTransaction'
       }, {
-        elementName: 'billToAddress',
-        typeInfo: '.BillToAddress'
-      }, {
-        elementName: 'updateSubscription',
-        typeInfo: '.UpdateSubscription',
+        elementName: 'cancelSubscription',
+        typeInfo: '.CancelSubscription',
         substitutionHead: 'recurringTransaction'
-      }, {
-        elementName: 'createPlanResponse',
-        typeInfo: '.CreatePlanResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'cancelSubscriptionResponse',
-        typeInfo: '.CancelSubscriptionResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'recurringTransaction',
-        typeInfo: '.RecurringTransactionType'
-      }, {
-        elementName: 'updatePlan',
-        typeInfo: '.UpdatePlan',
-        substitutionHead: 'recurringTransaction'
-      }, {
-        elementName: 'authentication',
-        typeInfo: '.Authentication'
-      }, {
-        elementName: 'updateSubscriptionResponse',
-        typeInfo: '.UpdateSubscriptionResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'updatePlanResponse',
-        typeInfo: '.UpdatePlanResponse',
-        substitutionHead: 'recurringTransactionResponse'
       }]
   };
   return {

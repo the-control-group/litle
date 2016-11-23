@@ -20,12 +20,25 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'catLevel'
           }]
       }, {
+        localName: 'UpdatePlan',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }, {
+            name: 'active',
+            required: true,
+            typeInfo: 'Boolean'
+          }]
+      }, {
         localName: 'AuthReversalResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -51,7 +64,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'litleTxnId'
+            name: 'litleTxnId',
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -200,7 +214,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'response',
             required: true
@@ -247,7 +262,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.RecurringTransactionResponseType',
         propertyInfos: [{
             name: 'subscriptionId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }]
       }, {
         localName: 'AuthInformation',
@@ -272,7 +288,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -381,17 +398,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'DateTime'
           }]
       }, {
-        localName: 'UpdateSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }]
-      }, {
         localName: 'CaptureGivenAuth',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
@@ -470,7 +476,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -515,19 +522,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'merchantGroupingId'
           }]
       }, {
-        localName: 'CardTokenType',
-        typeName: 'cardTokenType',
-        propertyInfos: [{
-            name: 'litleToken',
-            required: true
-          }, {
-            name: 'expDate'
-          }, {
-            name: 'cardValidationNum'
-          }, {
-            name: 'type'
-          }]
-      }, {
         localName: 'TransactionTypeWithReportGroupAndPartial',
         typeName: 'transactionTypeWithReportGroupAndPartial',
         baseTypeInfo: '.TransactionType',
@@ -551,7 +545,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         typeName: 'recurringResponseType',
         propertyInfos: [{
             name: 'subscriptionId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'responseCode',
             required: true
@@ -559,7 +554,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'responseMessage',
             required: true
           }, {
-            name: 'recurringTxnId'
+            name: 'recurringTxnId',
+            typeInfo: 'Long'
           }]
       }, {
         localName: 'AuthReversal',
@@ -567,7 +563,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'amount',
             typeInfo: 'Integer'
@@ -578,6 +575,28 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'payPalNotes'
           }, {
             name: 'actionReason'
+          }]
+      }, {
+        localName: 'CreateDiscountType',
+        typeName: 'createDiscountType',
+        propertyInfos: [{
+            name: 'discountCode',
+            required: true
+          }, {
+            name: 'name',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            required: true,
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            required: true,
+            typeInfo: 'Date'
           }]
       }, {
         localName: 'ForceCapture',
@@ -643,43 +662,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'CustomerInfo',
-        typeName: null,
-        propertyInfos: [{
-            name: 'ssn'
-          }, {
-            name: 'dob',
-            typeInfo: 'Date'
-          }, {
-            name: 'customerRegistrationDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'customerType'
-          }, {
-            name: 'incomeAmount',
-            typeInfo: 'Long'
-          }, {
-            name: 'incomeCurrency'
-          }, {
-            name: 'customerCheckingAccount',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'customerSavingAccount',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'employerName'
-          }, {
-            name: 'customerWorkTelephone'
-          }, {
-            name: 'residenceStatus'
-          }, {
-            name: 'yearsAtResidence',
-            typeInfo: 'Int'
-          }, {
-            name: 'yearsAtEmployer',
-            typeInfo: 'Int'
-          }]
-      }, {
         localName: 'EcheckCredit',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
@@ -688,7 +670,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
             required: true
           }, {
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'amount',
             required: true,
@@ -723,7 +706,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -764,7 +748,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId'
           }, {
@@ -779,12 +764,21 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'DateTime'
           }]
       }, {
+        localName: 'CreatePlanResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }]
+      }, {
         localName: 'BalanceInquiryResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -820,7 +814,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'Boolean'
           }, {
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'amount',
             typeInfo: 'Integer'
@@ -908,26 +903,34 @@ var litleTransaction_v8_29_Module_Factory = function () {
         typeName: 'litleInternalRecurringRequestType',
         propertyInfos: [{
             name: 'subscriptionId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'recurringTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'finalPayment',
             required: true,
             typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'UpdatePlan',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
+        localName: 'UpdateDiscountType',
+        typeName: 'updateDiscountType',
         propertyInfos: [{
-            name: 'planCode',
+            name: 'discountCode',
             required: true
           }, {
-            name: 'active',
-            required: true,
-            typeInfo: 'Boolean'
+            name: 'name'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            typeInfo: 'Date'
           }]
       }, {
         localName: 'CreditResponse',
@@ -935,7 +938,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId'
           }, {
@@ -981,6 +985,19 @@ var litleTransaction_v8_29_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
+        localName: 'CardTokenType',
+        typeName: 'cardTokenType',
+        propertyInfos: [{
+            name: 'litleToken',
+            required: true
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'type'
+          }]
+      }, {
         localName: 'RecyclingType',
         typeName: 'recyclingType',
         propertyInfos: [{
@@ -991,34 +1008,13 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'CreateDiscountType',
-        typeName: 'createDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }, {
-            name: 'name',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            required: true,
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            required: true,
-            typeInfo: 'Date'
-          }]
-      }, {
         localName: 'LoadReversalResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1040,20 +1036,12 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: '.GiftCardResponse'
           }]
       }, {
-        localName: 'CardType',
-        typeName: 'cardType',
+        localName: 'UpdatePlanResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
         propertyInfos: [{
-            name: 'track',
+            name: 'planCode',
             required: true
-          }, {
-            name: 'type',
-            required: true
-          }, {
-            name: 'number'
-          }, {
-            name: 'expDate'
-          }, {
-            name: 'cardValidationNum'
           }]
       }, {
         localName: 'ApplepayHeaderType',
@@ -1085,7 +1073,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1220,7 +1209,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: '.Wallet'
           }, {
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }]
       }, {
         localName: 'ForceCaptureResponse',
@@ -1228,7 +1218,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1291,25 +1282,13 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'phone'
           }]
       }, {
-        localName: 'CardPaypageType',
-        typeName: 'cardPaypageType',
-        propertyInfos: [{
-            name: 'paypageRegistrationId',
-            required: true
-          }, {
-            name: 'expDate'
-          }, {
-            name: 'cardValidationNum'
-          }, {
-            name: 'type'
-          }]
-      }, {
         localName: 'ActivateResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1344,11 +1323,21 @@ var litleTransaction_v8_29_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
+        localName: 'CancelSubscription',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }]
+      }, {
         localName: 'EcheckVerification',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'litleTxnId'
+            name: 'litleTxnId',
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1383,7 +1372,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
             required: true
           }, {
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'amount',
             required: true,
@@ -1534,7 +1524,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         typeName: null,
         propertyInfos: [{
             name: 'bmlMerchantId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'promotionalOfferCode'
           }, {
@@ -1553,12 +1544,38 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'riskQueueAssignment'
           }]
       }, {
+        localName: 'CardPaypageType',
+        typeName: 'cardPaypageType',
+        propertyInfos: [{
+            name: 'paypageRegistrationId',
+            required: true
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'type'
+          }]
+      }, {
+        localName: 'UpdateSubscriptionResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }]
+      }, {
         localName: 'EcheckSalesResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId'
           }, {
@@ -1591,43 +1608,13 @@ var litleTransaction_v8_29_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'CreatePlan',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
-        propertyInfos: [{
-            name: 'planCode',
-            required: true
-          }, {
-            name: 'name',
-            required: true
-          }, {
-            name: 'description'
-          }, {
-            name: 'intervalType',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'numberOfPayments',
-            typeInfo: 'Integer'
-          }, {
-            name: 'trialNumberOfIntervals',
-            typeInfo: 'Integer'
-          }, {
-            name: 'trialIntervalType'
-          }, {
-            name: 'active',
-            typeInfo: 'Boolean'
-          }]
-      }, {
         localName: 'EcheckCreditResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId'
           }, {
@@ -1662,7 +1649,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         typeName: 'recurringTransactionResponseType',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'response',
             required: true
@@ -1673,14 +1661,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'responseTime',
             required: true,
             typeInfo: 'DateTime'
-          }]
-      }, {
-        localName: 'CreatePlanResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'planCode',
-            required: true
           }]
       }, {
         localName: 'BalanceInquiry',
@@ -1698,68 +1678,22 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: '.CardType'
           }]
       }, {
-        localName: 'UpdateSubscription',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
+        localName: 'TokenResponseType',
+        typeName: 'tokenResponseType',
         propertyInfos: [{
-            name: 'subscriptionId',
+            name: 'litleToken'
+          }, {
+            name: 'tokenResponseCode',
             required: true
           }, {
-            name: 'planCode'
+            name: 'tokenMessage',
+            required: true
           }, {
-            name: 'billToAddress',
-            typeInfo: '.Contact'
+            name: 'type'
           }, {
-            name: 'paypage',
-            required: true,
-            typeInfo: '.CardPaypageType'
+            name: 'bin'
           }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.CardTokenType'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }, {
-            name: 'billingDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'createDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createDiscount',
-            typeInfo: '.CreateDiscountType'
-          }, {
-            name: 'updateDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'updateDiscount',
-            typeInfo: '.UpdateDiscountType'
-          }, {
-            name: 'deleteDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'deleteDiscount',
-            typeInfo: '.DeleteDiscountType'
-          }, {
-            name: 'createAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createAddOn',
-            typeInfo: '.CreateAddOnType'
-          }, {
-            name: 'updateAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'updateAddOn',
-            typeInfo: '.UpdateAddOnType'
-          }, {
-            name: 'deleteAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'deleteAddOn',
-            typeInfo: '.DeleteAddOnType'
+            name: 'eCheckAccountSuffix'
           }]
       }, {
         localName: 'EcheckRedepositResponse',
@@ -1767,7 +1701,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'response',
             required: true
@@ -1802,7 +1737,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1824,30 +1760,13 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: '.GiftCardResponse'
           }]
       }, {
-        localName: 'UpdateDiscountType',
-        typeName: 'updateDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }, {
-            name: 'name'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            typeInfo: 'Date'
-          }]
-      }, {
         localName: 'DepositReversalResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -1919,6 +1838,43 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'Boolean'
           }]
       }, {
+        localName: 'CustomerInfo',
+        typeName: null,
+        propertyInfos: [{
+            name: 'ssn'
+          }, {
+            name: 'dob',
+            typeInfo: 'Date'
+          }, {
+            name: 'customerRegistrationDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'customerType'
+          }, {
+            name: 'incomeAmount',
+            typeInfo: 'Long'
+          }, {
+            name: 'incomeCurrency'
+          }, {
+            name: 'customerCheckingAccount',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'customerSavingAccount',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'employerName'
+          }, {
+            name: 'customerWorkTelephone'
+          }, {
+            name: 'residenceStatus'
+          }, {
+            name: 'yearsAtResidence',
+            typeInfo: 'Int'
+          }, {
+            name: 'yearsAtEmployer',
+            typeInfo: 'Int'
+          }]
+      }, {
         localName: 'AdvancedFraudResultsType',
         typeName: 'advancedFraudResultsType',
         propertyInfos: [{
@@ -1941,6 +1897,13 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'Integer'
           }, {
             name: 'giftCardBin',
+            required: true
+          }]
+      }, {
+        localName: 'DeleteDiscountType',
+        typeName: 'deleteDiscountType',
+        propertyInfos: [{
+            name: 'discountCode',
             required: true
           }]
       }, {
@@ -1969,44 +1932,20 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'UpdateAddOnType',
-        typeName: 'updateAddOnType',
+        localName: 'CardType',
+        typeName: 'cardType',
         propertyInfos: [{
-            name: 'addOnCode',
+            name: 'track',
             required: true
           }, {
-            name: 'name'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'CreateAddOnType',
-        typeName: 'createAddOnType',
-        propertyInfos: [{
-            name: 'addOnCode',
+            name: 'type',
             required: true
           }, {
-            name: 'name',
-            required: true
+            name: 'number'
           }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
+            name: 'expDate'
           }, {
-            name: 'startDate',
-            required: true,
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            required: true,
-            typeInfo: 'Date'
+            name: 'cardValidationNum'
           }]
       }, {
         localName: 'PayPal',
@@ -2026,7 +1965,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId'
           }, {
@@ -2074,19 +2014,13 @@ var litleTransaction_v8_29_Module_Factory = function () {
             required: true
           }]
       }, {
-        localName: 'DeleteDiscountType',
-        typeName: 'deleteDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }]
-      }, {
         localName: 'LoadResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -2163,7 +2097,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -2200,6 +2135,37 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: '.CardType'
           }]
       }, {
+        localName: 'CreatePlan',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }, {
+            name: 'name',
+            required: true
+          }, {
+            name: 'description'
+          }, {
+            name: 'intervalType',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'numberOfPayments',
+            typeInfo: 'Integer'
+          }, {
+            name: 'trialNumberOfIntervals',
+            typeInfo: 'Integer'
+          }, {
+            name: 'trialIntervalType'
+          }, {
+            name: 'active',
+            typeInfo: 'Boolean'
+          }]
+      }, {
         localName: 'ApplepayType',
         typeName: 'applepayType',
         propertyInfos: [{
@@ -2226,12 +2192,44 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'number'
           }]
       }, {
-        localName: 'UpdatePlanResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
+        localName: 'UpdateAddOnType',
+        typeName: 'updateAddOnType',
         propertyInfos: [{
-            name: 'planCode',
+            name: 'addOnCode',
             required: true
+          }, {
+            name: 'name'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            typeInfo: 'Date'
+          }]
+      }, {
+        localName: 'CreateAddOnType',
+        typeName: 'createAddOnType',
+        propertyInfos: [{
+            name: 'addOnCode',
+            required: true
+          }, {
+            name: 'name',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            required: true,
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            required: true,
+            typeInfo: 'Date'
           }]
       }, {
         localName: 'RecyclingRequestType',
@@ -2242,12 +2240,29 @@ var litleTransaction_v8_29_Module_Factory = function () {
             name: 'recycleId'
           }]
       }, {
+        localName: 'TransactionType',
+        typeName: 'transactionType',
+        propertyInfos: [{
+            name: 'id',
+            attributeName: {
+              localPart: 'id'
+            },
+            type: 'attribute'
+          }, {
+            name: 'customerId',
+            attributeName: {
+              localPart: 'customerId'
+            },
+            type: 'attribute'
+          }]
+      }, {
         localName: 'DeactivateResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -2329,7 +2344,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId'
           }, {
@@ -2371,7 +2387,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -2398,7 +2415,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'echeckOrEcheckToken',
             mixed: false,
@@ -2408,29 +2426,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
           }, {
             name: 'merchantData',
             typeInfo: '.MerchantDataType'
-          }]
-      }, {
-        localName: 'TransactionType',
-        typeName: 'transactionType',
-        propertyInfos: [{
-            name: 'id',
-            attributeName: {
-              localPart: 'id'
-            },
-            type: 'attribute'
-          }, {
-            name: 'customerId',
-            attributeName: {
-              localPart: 'customerId'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'DeleteAddOnType',
-        typeName: 'deleteAddOnType',
-        propertyInfos: [{
-            name: 'addOnCode',
-            required: true
           }]
       }, {
         localName: 'EcheckTokenType',
@@ -2491,7 +2486,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroupAndPartial',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'amount',
             typeInfo: 'Integer'
@@ -2516,7 +2512,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -2581,32 +2578,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'TokenResponseType',
-        typeName: 'tokenResponseType',
-        propertyInfos: [{
-            name: 'litleToken'
-          }, {
-            name: 'tokenResponseCode',
-            required: true
-          }, {
-            name: 'tokenMessage',
-            required: true
-          }, {
-            name: 'type'
-          }, {
-            name: 'bin'
-          }, {
-            name: 'eCheckAccountSuffix'
-          }]
-      }, {
-        localName: 'CancelSubscription',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true
-          }]
-      }, {
         localName: 'EcheckForTokenType',
         typeName: 'echeckForTokenType',
         propertyInfos: [{
@@ -2615,6 +2586,71 @@ var litleTransaction_v8_29_Module_Factory = function () {
           }, {
             name: 'routingNum',
             required: true
+          }]
+      }, {
+        localName: 'UpdateSubscription',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'planCode'
+          }, {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'paypage',
+            required: true,
+            typeInfo: '.CardPaypageType'
+          }, {
+            name: 'token',
+            required: true,
+            typeInfo: '.CardTokenType'
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }, {
+            name: 'billingDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'createDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createDiscount',
+            typeInfo: '.CreateDiscountType'
+          }, {
+            name: 'updateDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'updateDiscount',
+            typeInfo: '.UpdateDiscountType'
+          }, {
+            name: 'deleteDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'deleteDiscount',
+            typeInfo: '.DeleteDiscountType'
+          }, {
+            name: 'createAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createAddOn',
+            typeInfo: '.CreateAddOnType'
+          }, {
+            name: 'updateAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'updateAddOn',
+            typeInfo: '.UpdateAddOnType'
+          }, {
+            name: 'deleteAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'deleteAddOn',
+            typeInfo: '.DeleteAddOnType'
           }]
       }, {
         localName: 'FraudCheck',
@@ -2652,7 +2688,8 @@ var litleTransaction_v8_29_Module_Factory = function () {
         localName: 'BillMeLaterRequest',
         typeName: null,
         propertyInfos: [{
-            name: 'bmlMerchantId'
+            name: 'bmlMerchantId',
+            typeInfo: 'Long'
           }, {
             name: 'bmlProductType'
           }, {
@@ -2769,12 +2806,20 @@ var litleTransaction_v8_29_Module_Factory = function () {
             typeInfo: '.LineItemData'
           }]
       }, {
+        localName: 'DeleteAddOnType',
+        typeName: 'deleteAddOnType',
+        propertyInfos: [{
+            name: 'addOnCode',
+            required: true
+          }]
+      }, {
         localName: 'AuthorizationResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'orderId',
             required: true
@@ -2833,10 +2878,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
           }]
       }, {
         type: 'enumInfo',
-        localName: 'IntervalTypeEnum',
-        values: ['ANNUAL', 'SEMIANNUAL', 'QUARTERLY', 'MONTHLY', 'WEEKLY']
-      }, {
-        type: 'enumInfo',
         localName: 'CurrencyCodeEnum',
         values: ['AUD', 'CAD', 'CHF', 'DKK', 'EUR', 'GBP', 'HKD', 'JPY', 'NOK', 'NZD', 'SEK', 'SGD', 'USD']
       }, {
@@ -2857,6 +2898,10 @@ var litleTransaction_v8_29_Module_Factory = function () {
         values: ['UNKNOWN', 'PREPAID', 'FSA', 'CREDIT', 'DEBIT']
       }, {
         type: 'enumInfo',
+        localName: 'IntervalTypeEnum',
+        values: ['ANNUAL', 'SEMIANNUAL', 'QUARTERLY', 'MONTHLY', 'WEEKLY']
+      }, {
+        type: 'enumInfo',
         localName: 'GovtTaxTypeEnum',
         values: ['payment', 'fee']
       }, {
@@ -2869,6 +2914,10 @@ var litleTransaction_v8_29_Module_Factory = function () {
         values: ['Merchant', 'Litle', 'None']
       }, {
         type: 'enumInfo',
+        localName: 'TrialIntervalTypeEnum',
+        values: ['MONTH', 'DAY']
+      }, {
+        type: 'enumInfo',
         localName: 'PosCatLevelEnum',
         values: ['self service']
       }, {
@@ -2879,10 +2928,6 @@ var litleTransaction_v8_29_Module_Factory = function () {
         type: 'enumInfo',
         localName: 'AffluenceTypeEnum',
         values: ['AFFLUENT', 'MASS AFFLUENT']
-      }, {
-        type: 'enumInfo',
-        localName: 'TrialIntervalTypeEnum',
-        values: ['MONTH', 'DAY']
       }, {
         type: 'enumInfo',
         localName: 'CardProductTypeEnum',

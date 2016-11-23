@@ -22,8 +22,8 @@ describe('Litle v8.29', function() {
 			}, function(err, res){
 				if (err) return done(err);
 				var tokenResponse = res.registerTokenResponse;
-				assert.equal(tokenResponse.response, '000');
-				assert.equal(tokenResponse.litleToken, '1111222233334444');
+				assert.strictEqual(tokenResponse.response, '000');
+				assert.strictEqual(tokenResponse.litleToken, '1111222233334444');
 				done();
 			});
 		});
@@ -48,8 +48,9 @@ describe('Litle v8.29', function() {
 				if(err) return done(err);
 				var authResponse = res.authorizationResponse;
 				var tokenResponse = res.authorizationResponse.tokenResponse;
-				assert.equal(authResponse.response, '000');
-				assert.equal(tokenResponse.tokenResponseCode, '801');
+				assert.isString(authResponse.litleTxnId);
+				assert.strictEqual(authResponse.response, '000');
+				assert.strictEqual(tokenResponse.tokenResponseCode, '801');
 				assert.isDefined(tokenResponse.litleToken);
 				validAuth = authResponse.litleTxnId;
 				token = tokenResponse.litleToken;
@@ -75,7 +76,7 @@ describe('Litle v8.29', function() {
 				if(err) return done(err);
 				var authResponse = res.authorizationResponse;
 				var tokenResponse = res.authorizationResponse.tokenResponse;
-				assert.equal(authResponse.response, '110');
+				assert.strictEqual(authResponse.response, '110');
 				assert.isUndefined(tokenResponse);
 				done();
 			});
@@ -93,7 +94,7 @@ describe('Litle v8.29', function() {
 			}, function(err, res){
 				if(err) return done(err);
 				var authReversalResponse = res.authReversalResponse;
-				assert.equal(authReversalResponse.response, '000');
+				assert.strictEqual(authReversalResponse.response, '000');
 				done();
 			});
 		});
@@ -118,8 +119,9 @@ describe('Litle v8.29', function() {
 				if(err) return done(err);
 				var authResponse = res.authorizationResponse;
 				var tokenResponse = res.authorizationResponse.tokenResponse;
-				assert.equal(authResponse.response, '000');
-				assert.equal(tokenResponse.tokenResponseCode, '801');
+				assert.isString(authResponse.litleTxnId);
+				assert.strictEqual(authResponse.response, '000');
+				assert.strictEqual(tokenResponse.tokenResponseCode, '801');
 				assert.isDefined(tokenResponse.litleToken);
 				validCapture = authResponse.litleTxnId;
 				token = tokenResponse.litleToken;
@@ -128,17 +130,18 @@ describe('Litle v8.29', function() {
 		});
 
 		it('succeeds with a valid auth', function(done) {
-			litle.litleOnlineRequest.authorization({
+			litle.litleOnlineRequest.capture({
 				id: 'ididid',
 				reportGroup: 'rtpGrp',
 				litleTxnId: validCapture,
 			}, function(err, res){
 				if(err) return done(err);
-				var authResponse = res.authorizationResponse;
-				var tokenResponse = res.authorizationResponse.tokenResponse;
-				assert.equal(authResponse.response, '000');
+				var captureResponse = res.captureResponse;
+				var tokenResponse = res.captureResponse.tokenResponse;
+				assert.isString(captureResponse.litleTxnId);
+				assert.strictEqual(captureResponse.response, '000');
 				assert.isUndefined(tokenResponse);
-				validCapture = authResponse.litleTxnId;
+				validCapture = captureResponse.litleTxnId;
 				done();
 			});
 		});
@@ -163,7 +166,7 @@ describe('Litle v8.29', function() {
 			}, function(err, res){
 				if(err) return done(err);
 				var saleResponse = res.saleResponse;
-				assert.equal(saleResponse.response, '000');
+				assert.strictEqual(saleResponse.response, '000');
 				validSale = saleResponse.litleTxnId;
 				done();
 			});
@@ -186,7 +189,7 @@ describe('Litle v8.29', function() {
 			}, function(err, res){
 				if(err) return done(err);
 				var saleResponse = res.saleResponse;
-				assert.equal(saleResponse.response, '000');
+				assert.strictEqual(saleResponse.response, '000');
 				done();
 			});
 		});
@@ -202,7 +205,7 @@ describe('Litle v8.29', function() {
 			}, function(err, res){
 				if(err) return done(err);
 				var creditResponse = res.creditResponse;
-				assert.equal(creditResponse.response, '000');
+				assert.strictEqual(creditResponse.response, '000');
 				done();
 			});
 		});
