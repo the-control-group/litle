@@ -3,7 +3,7 @@
 var litle = require('../lib/Litle.js')({
 	user: 'test_user',
 	password: 'test_password',
-	url: 'https://www.testlitle.com/sandbox/communicator/online',
+	url: 'https://www.testvantivcnp.com/sandbox/communicator/online',
 	version: '9.10'
 });
 var assert = require('chai').assert;
@@ -22,7 +22,7 @@ describe('Litle v9.10', function() {
 			}, function(err, res){
 				if (err) return done(err);
 				var tokenResponse = res.registerTokenResponse;
-				assert.strictEqual(tokenResponse.response, '000');
+				assert.strictEqual(tokenResponse.response, '801');
 				assert.strictEqual(tokenResponse.litleToken, '1111222233334444');
 				done();
 			});
