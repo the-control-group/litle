@@ -1,6 +1,10 @@
 "use strict";
 
-var litle = require('./lib/Litle.js')({});
+var litle = require('./lib/Litle.js')({
+	user: process.env.LITLE_CERTIFICATION_USER,
+	password: process.env.LITLE_CERTIFICATION_PASSWORD,
+	log: true,
+});
 
 litle.litleOnlineRequest.sale({
 	id: 'Sale Id',
@@ -24,7 +28,7 @@ litle.litleOnlineRequest.sale({
 		cardValidationNum: '349'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -52,7 +56,7 @@ litle.litleOnlineRequest.sale({
 		authenticationValue: 'BwABBJQ1AgAAA AAgJDUCAAAAAA A='
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -78,7 +82,7 @@ litle.litleOnlineRequest.sale({
 		cardValidationNum: '758'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -103,7 +107,7 @@ litle.litleOnlineRequest.sale({
 		expDate: '0414'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -122,7 +126,7 @@ litle.litleOnlineRequest.sale({
 		authenticationValue: 'BwABBJQ1AgAAA AAgJDUCAAAAAA A='
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -148,7 +152,7 @@ litle.litleOnlineRequest.sale({
 		cardValidationNum: '992'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -174,7 +178,7 @@ litle.litleOnlineRequest.sale({
 		cardValidationNum: '251'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -200,7 +204,7 @@ litle.litleOnlineRequest.sale({
 		cardValidationNum: '184'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
@@ -226,7 +230,7 @@ litle.litleOnlineRequest.sale({
 		cardValidationNum: '0421'
 	}
 }, function(err, res){
-	console.log(res);
+	console.log({err,res});
 });
 
 
