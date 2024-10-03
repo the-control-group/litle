@@ -3,7 +3,107 @@ var litleBatch_v9_10_Module_Factory = function () {
     name: 'litleBatch_v9_10',
     defaultElementNamespaceURI: 'http:\/\/www.litle.com\/schema',
     typeInfos: [{
-        localName: 'BalanceInquiryResponse',
+        localName: 'ApplepayResponse',
+        typeName: null,
+        propertyInfos: [{
+            name: 'applicationPrimaryAccountNumber'
+          }, {
+            name: 'applicationExpirationDate'
+          }, {
+            name: 'currencyCode'
+          }, {
+            name: 'transactionAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'cardholderName'
+          }, {
+            name: 'deviceManufacturerIdentifier'
+          }, {
+            name: 'paymentDataType'
+          }, {
+            name: 'onlinePaymentCryptogram',
+            typeInfo: 'Base64Binary'
+          }, {
+            name: 'eciIndicator'
+          }]
+      }, {
+        localName: 'ForceCaptureResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }, {
+            name: 'accountUpdater',
+            typeInfo: '.AccountUpdater'
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'VendorDebit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'vendorName',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'accountInfo',
+            required: true,
+            typeInfo: '.EcheckType'
+          }]
+      }, {
+        localName: 'RecurringResponseType',
+        typeName: 'recurringResponseType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'responseCode',
+            required: true
+          }, {
+            name: 'responseMessage',
+            required: true
+          }, {
+            name: 'recurringTxnId',
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'ActivateResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -32,27 +132,9 @@ var litleBatch_v9_10_Module_Factory = function () {
           }, {
             name: 'giftCardResponse',
             typeInfo: '.GiftCardResponse'
-          }]
-      }, {
-        localName: 'EcheckPreNoteCreditResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
           }, {
-            name: 'orderId'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
+            name: 'virtualGiftCardResponse',
+            typeInfo: '.VirtualGiftCardResponse'
           }, {
             name: 'duplicate',
             typeInfo: 'Boolean',
@@ -62,78 +144,71 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'EcheckTokenType',
-        typeName: 'echeckTokenType',
-        propertyInfos: [{
-            name: 'litleToken',
-            required: true
-          }, {
-            name: 'routingNum',
-            required: true
-          }, {
-            name: 'accType',
-            required: true
-          }, {
-            name: 'checkNum'
-          }]
-      }, {
-        localName: 'PayFacCredit',
+        localName: 'UpdatePlan',
         typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        baseTypeInfo: '.RecurringTransactionType',
         propertyInfos: [{
-            name: 'fundingSubmerchantId',
+            name: 'planCode',
             required: true
           }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
+            name: 'active',
             required: true,
-            typeInfo: 'Integer'
+            typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'EcheckSale',
+        localName: 'LoadResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'verify',
-            typeInfo: 'Boolean'
-          }, {
             name: 'litleTxnId',
             required: true,
             typeInfo: 'Long'
           }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'secondaryAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
+            name: 'orderId',
             required: true
           }, {
-            name: 'billToAddress',
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
             required: true,
-            typeInfo: '.Contact'
+            typeInfo: 'DateTime'
           }, {
-            name: 'shipToAddress',
-            typeInfo: '.Contact'
+            name: 'postDate',
+            typeInfo: 'Date'
           }, {
-            name: 'echeckOrEcheckToken',
+            name: 'message',
+            required: true
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }, {
+            name: 'duplicate',
+            typeInfo: 'Boolean',
+            attributeName: {
+              localPart: 'duplicate'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'ApplepayType',
+        typeName: 'applepayType',
+        propertyInfos: [{
+            name: 'data',
+            required: true
+          }, {
+            name: 'header',
             required: true,
-            mixed: false,
-            allowDom: false,
-            typeInfo: 'AnyType',
-            type: 'elementRef'
+            typeInfo: '.ApplepayHeaderType'
           }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
+            name: 'signature',
+            required: true
           }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
+            name: 'version',
+            required: true
           }]
       }, {
         localName: 'CreateAddOnType',
@@ -158,447 +233,69 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: 'Date'
           }]
       }, {
-        localName: 'UpdatePlanResponse',
+        localName: 'UpdateSubscription',
         typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
+        baseTypeInfo: '.RecurringTransactionType',
         propertyInfos: [{
-            name: 'planCode',
-            required: true
-          }]
-      }, {
-        localName: 'CardAccountInfoType',
-        typeName: 'cardAccountInfoType',
-        propertyInfos: [{
-            name: 'type',
-            required: true
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
           }, {
-            name: 'number',
-            required: true
-          }, {
-            name: 'expDate',
-            required: true
-          }]
-      }, {
-        localName: 'TransactionType',
-        typeName: 'transactionType',
-        propertyInfos: [{
-            name: 'id',
-            attributeName: {
-              localPart: 'id'
-            },
-            type: 'attribute'
-          }, {
-            name: 'customerId',
-            attributeName: {
-              localPart: 'customerId'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'FraudCheck',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'advancedFraudChecks',
-            typeInfo: '.AdvancedFraudChecksType'
+            name: 'planCode'
           }, {
             name: 'billToAddress',
             typeInfo: '.Contact'
           }, {
-            name: 'shipToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'ReserveCredit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
+            name: 'paypage',
             required: true,
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'DeleteDiscountType',
-        typeName: 'deleteDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }]
-      }, {
-        localName: 'UnloadReversalResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
+            typeInfo: '.CardPaypageType'
+          }, {
+            name: 'token',
             required: true,
-            typeInfo: 'Long'
+            typeInfo: '.CardTokenType'
           }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
+            name: 'card',
             required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }]
-      }, {
-        localName: 'EcheckRedeposit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'echeckOrEcheckToken',
-            mixed: false,
-            allowDom: false,
-            typeInfo: 'AnyType',
-            type: 'elementRef'
-          }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }]
-      }, {
-        localName: 'AccountUpdateResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'updatedCard',
             typeInfo: '.CardType'
           }, {
-            name: 'originalCard',
-            typeInfo: '.CardType'
-          }, {
-            name: 'updatedToken',
-            typeInfo: '.CardTokenTypeAU'
-          }, {
-            name: 'originalToken',
-            typeInfo: '.CardTokenTypeAU'
-          }]
-      }, {
-        localName: 'BillMeLaterResponseData',
-        typeName: null,
-        propertyInfos: [{
-            name: 'bmlMerchantId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'promotionalOfferCode'
-          }, {
-            name: 'approvedTermsCode',
-            typeInfo: 'Int'
-          }, {
-            name: 'creditLine',
-            typeInfo: 'Integer'
-          }, {
-            name: 'addressIndicator'
-          }, {
-            name: 'loanToValueEstimator'
-          }, {
-            name: 'riskEstimator'
-          }, {
-            name: 'riskQueueAssignment'
-          }]
-      }, {
-        localName: 'FilteringType',
-        typeName: 'filteringType',
-        propertyInfos: [{
-            name: 'prepaid',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'international',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'chargeback',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'HealthcareAmounts',
-        typeName: null,
-        propertyInfos: [{
-            name: 'totalHealthcareAmount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'rxAmount',
-            elementName: 'RxAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'visionAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'clinicOtherAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'dentalAmount',
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'RecyclingRequestType',
-        typeName: 'recyclingRequestType',
-        propertyInfos: [{
-            name: 'recycleBy'
-          }, {
-            name: 'recycleId'
-          }]
-      }, {
-        localName: 'UpdateCardValidationNumOnTokenResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }]
-      }, {
-        localName: 'EcheckType',
-        typeName: 'echeckType',
-        propertyInfos: [{
-            name: 'accType',
-            required: true
-          }, {
-            name: 'accNum',
-            required: true
-          }, {
-            name: 'routingNum',
-            required: true
-          }, {
-            name: 'checkNum'
-          }, {
-            name: 'ccdPaymentInformation'
-          }]
-      }, {
-        localName: 'ExtendedCardResponseType',
-        typeName: 'extendedCardResponseType',
-        propertyInfos: [{
-            name: 'message',
-            required: true
-          }, {
-            name: 'code',
-            required: true
-          }]
-      }, {
-        localName: 'VirtualGiftCardResponse',
-        typeName: null,
-        propertyInfos: [{
-            name: 'accountNumber'
-          }, {
-            name: 'cardValidationNum'
-          }, {
-            name: 'pin'
-          }]
-      }, {
-        localName: 'PhysicalCheckCredit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'ReserveCreditResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }]
-      }, {
-        localName: 'AuthorizationResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'cardProductId'
-          }, {
-            name: 'postDate',
+            name: 'billingDate',
             typeInfo: 'Date'
           }, {
-            name: 'message',
-            required: true
+            name: 'createDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createDiscount',
+            typeInfo: '.CreateDiscountType'
           }, {
-            name: 'authCode'
+            name: 'updateDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'updateDiscount',
+            typeInfo: '.UpdateDiscountType'
           }, {
-            name: 'authorizationResponseSubCode'
+            name: 'deleteDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'deleteDiscount',
+            typeInfo: '.DeleteDiscountType'
           }, {
-            name: 'approvedAmount',
-            typeInfo: 'Integer'
+            name: 'createAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createAddOn',
+            typeInfo: '.CreateAddOnType'
           }, {
-            name: 'accountInformation',
-            typeInfo: '.AccountInfoType'
+            name: 'updateAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'updateAddOn',
+            typeInfo: '.UpdateAddOnType'
           }, {
-            name: 'accountUpdater',
-            typeInfo: '.AccountUpdater'
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'billMeLaterResponseData',
-            typeInfo: '.BillMeLaterResponseData'
-          }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }, {
-            name: 'enhancedAuthResponse',
-            typeInfo: '.EnhancedAuthResponse'
-          }, {
-            name: 'recycling',
-            typeInfo: '.RecyclingType'
-          }, {
-            name: 'recurringResponse',
-            typeInfo: '.RecurringResponseType'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }, {
-            name: 'applepayResponse',
-            typeInfo: '.ApplepayResponse'
-          }, {
-            name: 'cardSuffix'
-          }, {
-            name: 'androidpayResponse',
-            typeInfo: '.AndroidpayResponse'
-          }, {
-            name: 'networkTransactionId'
-          }]
-      }, {
-        localName: 'RegisterTokenRequestType',
-        typeName: 'registerTokenRequestType',
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId'
-          }, {
-            name: 'applepay',
-            required: true,
-            typeInfo: '.ApplepayType'
-          }, {
-            name: 'paypageRegistrationId',
-            required: true
-          }, {
-            name: 'echeckForToken',
-            required: true,
-            typeInfo: '.EcheckForTokenType'
-          }, {
-            name: 'accountNumber',
-            required: true
-          }, {
-            name: 'mpos',
-            required: true,
-            typeInfo: '.MposType'
-          }, {
-            name: 'cardValidationNum'
-          }]
-      }, {
-        localName: 'UpdateAddOnType',
-        typeName: 'updateAddOnType',
-        propertyInfos: [{
-            name: 'addOnCode',
-            required: true
-          }, {
-            name: 'name'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'Credit.Paypal',
-        typeName: null,
-        propertyInfos: [{
-            name: 'payerEmail',
-            required: true
-          }, {
-            name: 'payerId',
-            required: true
+            name: 'deleteAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'deleteAddOn',
+            typeInfo: '.DeleteAddOnType'
           }]
       }, {
         localName: 'BillMeLaterRequest',
@@ -643,6 +340,103 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'authorizationSourcePlatform'
           }]
       }, {
+        localName: 'Wallet',
+        typeName: null,
+        propertyInfos: [{
+            name: 'walletSourceType',
+            required: true,
+            typeInfo: '.WalletSourceType'
+          }, {
+            name: 'walletSourceTypeId',
+            required: true
+          }]
+      }, {
+        localName: 'Deactivate',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }]
+      }, {
+        localName: 'VendorCredit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'vendorName',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'accountInfo',
+            required: true,
+            typeInfo: '.EcheckType'
+          }]
+      }, {
+        localName: 'CardType',
+        typeName: 'cardType',
+        propertyInfos: [{
+            name: 'track',
+            required: true
+          }, {
+            name: 'type',
+            required: true,
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }, {
+            name: 'number'
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'pin'
+          }]
+      }, {
+        localName: 'AndroidpayResponse',
+        typeName: null,
+        propertyInfos: [{
+            name: 'cryptogram',
+            typeInfo: 'Base64Binary'
+          }, {
+            name: 'expMonth'
+          }, {
+            name: 'expYear'
+          }]
+      }, {
+        localName: 'UpdateAddOnType',
+        typeName: 'updateAddOnType',
+        propertyInfos: [{
+            name: 'addOnCode',
+            required: true
+          }, {
+            name: 'name'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            typeInfo: 'Date'
+          }]
+      }, {
         localName: 'AccountUpdater',
         typeName: null,
         propertyInfos: [{
@@ -682,14 +476,79 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: '.EcheckAccountInfoType'
           }]
       }, {
-        localName: 'SubmerchantDebit',
+        localName: 'ForceCapture',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'surchargeAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'paypage',
+            required: true,
+            typeInfo: '.CardPaypageType'
+          }, {
+            name: 'token',
+            required: true,
+            typeInfo: '.CardTokenType'
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }, {
+            name: 'mpos',
+            required: true,
+            typeInfo: '.MposType'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'taxType',
+            typeInfo: '.GovtTaxTypeEnum'
+          }, {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          }, {
+            name: 'processingInstructions',
+            typeInfo: '.ProcessingInstructions'
+          }, {
+            name: 'pos',
+            typeInfo: '.Pos'
+          }, {
+            name: 'amexAggregatorData',
+            typeInfo: '.AmexAggregatorData'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }, {
+            name: 'debtRepayment',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'processingType',
+            typeInfo: '.ProcessingTypeEnum'
+          }]
+      }, {
+        localName: 'ReserveCredit',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'submerchantName',
             required: true
           }, {
             name: 'fundsTransferId',
@@ -698,69 +557,9 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'amount',
             required: true,
             typeInfo: 'Integer'
-          }, {
-            name: 'accountInfo',
-            required: true,
-            typeInfo: '.EcheckType'
           }]
       }, {
-        localName: 'RecurringRequestType',
-        typeName: 'recurringRequestType',
-        propertyInfos: [{
-            name: 'subscription',
-            required: true,
-            typeInfo: '.RecurringSubscriptionType'
-          }]
-      }, {
-        localName: 'EnhancedData',
-        typeName: null,
-        propertyInfos: [{
-            name: 'customerReference'
-          }, {
-            name: 'salesTax',
-            typeInfo: 'Integer'
-          }, {
-            name: 'deliveryType'
-          }, {
-            name: 'taxExempt',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'discountAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'shippingAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'dutyAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'shipFromPostalCode'
-          }, {
-            name: 'destinationPostalCode'
-          }, {
-            name: 'destinationCountryCode'
-          }, {
-            name: 'invoiceReferenceNumber'
-          }, {
-            name: 'orderDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'detailTaxes',
-            minOccurs: 0,
-            maxOccurs: 6,
-            collection: true,
-            elementName: 'detailTax',
-            typeInfo: '.DetailTax'
-          }, {
-            name: 'lineItemDatas',
-            minOccurs: 0,
-            maxOccurs: 99,
-            collection: true,
-            elementName: 'lineItemData',
-            typeInfo: '.LineItemData'
-          }]
-      }, {
-        localName: 'ActivateReversalResponse',
+        localName: 'SubmerchantCreditResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -768,7 +567,7 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'Long'
           }, {
-            name: 'orderId',
+            name: 'fundsTransferId',
             required: true
           }, {
             name: 'response',
@@ -778,14 +577,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'DateTime'
           }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
             name: 'message',
             required: true
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
           }]
       }, {
         localName: 'EcheckSalesResponse',
@@ -823,6 +616,510 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: 'Boolean',
             attributeName: {
               localPart: 'duplicate'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'CardTokenInfoType',
+        typeName: 'cardTokenInfoType',
+        propertyInfos: [{
+            name: 'litleToken',
+            required: true
+          }, {
+            name: 'type',
+            required: true,
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }, {
+            name: 'expDate',
+            required: true
+          }, {
+            name: 'bin'
+          }]
+      }, {
+        localName: 'PhysicalCheckCredit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'BalanceInquiryResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'Authorization',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'surchargeAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'customerInfo',
+            typeInfo: '.CustomerInfo'
+          }, {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'shipToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'applepay',
+            required: true,
+            typeInfo: '.ApplepayType'
+          }, {
+            name: 'paypage',
+            required: true,
+            typeInfo: '.CardPaypageType'
+          }, {
+            name: 'token',
+            required: true,
+            typeInfo: '.CardTokenType'
+          }, {
+            name: 'paypal',
+            required: true,
+            typeInfo: '.PayPal'
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }, {
+            name: 'mpos',
+            required: true,
+            typeInfo: '.MposType'
+          }, {
+            name: 'billMeLaterRequest',
+            typeInfo: '.BillMeLaterRequest'
+          }, {
+            name: 'cardholderAuthentication',
+            typeInfo: '.FraudCheckType'
+          }, {
+            name: 'processingInstructions',
+            typeInfo: '.ProcessingInstructions'
+          }, {
+            name: 'pos',
+            typeInfo: '.Pos'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'taxType',
+            typeInfo: '.GovtTaxTypeEnum'
+          }, {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          }, {
+            name: 'amexAggregatorData',
+            typeInfo: '.AmexAggregatorData'
+          }, {
+            name: 'allowPartialAuth',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'healthcareIIAS',
+            typeInfo: '.HealthcareIIAS'
+          }, {
+            name: 'filtering',
+            typeInfo: '.FilteringType'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }, {
+            name: 'recyclingRequest',
+            typeInfo: '.RecyclingRequestType'
+          }, {
+            name: 'fraudFilterOverride',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'recurringRequest',
+            typeInfo: '.RecurringRequestType'
+          }, {
+            name: 'debtRepayment',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'advancedFraudChecks',
+            typeInfo: '.AdvancedFraudChecksType'
+          }, {
+            name: 'wallet',
+            typeInfo: '.Wallet'
+          }, {
+            name: 'processingType',
+            typeInfo: '.ProcessingTypeEnum'
+          }, {
+            name: 'originalNetworkTransactionId'
+          }, {
+            name: 'originalTransactionAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'DetailTax',
+        typeName: null,
+        propertyInfos: [{
+            name: 'taxIncludedInTotal',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'taxAmount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'taxRate',
+            typeInfo: 'Decimal'
+          }, {
+            name: 'taxTypeIdentifier',
+            values: ['00', '01', '02', '03', '04', '05', '06', '10', '11', '12', '13', '14', '20', '21', '22']
+          }, {
+            name: 'cardAcceptorTaxId'
+          }]
+      }, {
+        localName: 'AccountUpdate',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'cardOrToken',
+            required: true,
+            mixed: false,
+            allowDom: false,
+            typeInfo: 'AnyType',
+            type: 'elementRef'
+          }]
+      }, {
+        localName: 'AccountUpdateResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'updatedCard',
+            typeInfo: '.CardType'
+          }, {
+            name: 'originalCard',
+            typeInfo: '.CardType'
+          }, {
+            name: 'updatedToken',
+            typeInfo: '.CardTokenTypeAU'
+          }, {
+            name: 'originalToken',
+            typeInfo: '.CardTokenTypeAU'
+          }]
+      }, {
+        localName: 'PhysicalCheckDebit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'PayFacDebitResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
+            required: true
+          }]
+      }, {
+        localName: 'Authentication',
+        typeName: null,
+        propertyInfos: [{
+            name: 'user',
+            required: true
+          }, {
+            name: 'password',
+            required: true
+          }]
+      }, {
+        localName: 'ActivateReversalResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'EcheckSale',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'verify',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'billToAddress',
+            required: true,
+            typeInfo: '.Contact'
+          }, {
+            name: 'shipToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'echeckOrEcheckToken',
+            required: true,
+            mixed: false,
+            allowDom: false,
+            typeInfo: 'AnyType',
+            type: 'elementRef'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }]
+      }, {
+        localName: 'Credit.Paypal',
+        typeName: null,
+        propertyInfos: [{
+            name: 'payerEmail',
+            required: true
+          }, {
+            name: 'payerId',
+            required: true
+          }]
+      }, {
+        localName: 'EnhancedData',
+        typeName: null,
+        propertyInfos: [{
+            name: 'customerReference'
+          }, {
+            name: 'salesTax',
+            typeInfo: 'Integer'
+          }, {
+            name: 'deliveryType',
+            values: ['CNC', 'DIG', 'PHY', 'SVC', 'TBD']
+          }, {
+            name: 'taxExempt',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'discountAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'shippingAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'dutyAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'shipFromPostalCode'
+          }, {
+            name: 'destinationPostalCode'
+          }, {
+            name: 'destinationCountryCode',
+            typeInfo: '.CountryTypeEnum'
+          }, {
+            name: 'invoiceReferenceNumber'
+          }, {
+            name: 'orderDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'detailTaxes',
+            minOccurs: 0,
+            maxOccurs: 6,
+            collection: true,
+            elementName: 'detailTax',
+            typeInfo: '.DetailTax'
+          }, {
+            name: 'lineItemDatas',
+            minOccurs: 0,
+            maxOccurs: 99,
+            collection: true,
+            elementName: 'lineItemData',
+            typeInfo: '.LineItemData'
+          }]
+      }, {
+        localName: 'CaptureGivenAuthResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'LitleRequest',
+        typeName: null,
+        propertyInfos: [{
+            name: 'authentication',
+            required: true,
+            typeInfo: '.Authentication'
+          }, {
+            name: 'rfrRequest',
+            elementName: 'RFRRequest',
+            typeInfo: '.RFRRequest'
+          }, {
+            name: 'batchRequests',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'batchRequest',
+            typeInfo: '.BatchRequest'
+          }, {
+            name: 'version',
+            required: true,
+            attributeName: {
+              localPart: 'version'
+            },
+            type: 'attribute'
+          }, {
+            name: 'id',
+            attributeName: {
+              localPart: 'id'
+            },
+            type: 'attribute'
+          }, {
+            name: 'numBatchRequests',
+            required: true,
+            typeInfo: 'Integer',
+            attributeName: {
+              localPart: 'numBatchRequests'
             },
             type: 'attribute'
           }]
@@ -868,61 +1165,72 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: '.DetailTax'
           }]
       }, {
-        localName: 'EnhancedAuthResponse',
+        localName: 'FraudResult',
         typeName: null,
         propertyInfos: [{
-            name: 'fundingSource',
-            typeInfo: '.EnhancedAuthResponse.FundingSource'
+            name: 'avsResult'
           }, {
-            name: 'affluence'
+            name: 'cardValidationResult'
           }, {
-            name: 'issuerCountry'
+            name: 'authenticationResult'
           }, {
-            name: 'cardProductType'
-          }, {
-            name: 'virtualAccountNumber',
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'CancelSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true,
-            typeInfo: 'Long'
-          }]
-      }, {
-        localName: 'FraudCheckResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
+            name: 'advancedAVSResult'
           }, {
             name: 'advancedFraudResults',
             typeInfo: '.AdvancedFraudResultsType'
           }]
       }, {
-        localName: 'AmexAggregatorData',
+        localName: 'GiftCardResponse',
         typeName: null,
         propertyInfos: [{
-            name: 'sellerId',
+            name: 'availableBalance'
+          }, {
+            name: 'beginningBalance'
+          }, {
+            name: 'endingBalance'
+          }, {
+            name: 'cashBackAmount'
+          }]
+      }, {
+        localName: 'AdvancedFraudResultsType',
+        typeName: 'advancedFraudResultsType',
+        propertyInfos: [{
+            name: 'deviceReviewStatus'
+          }, {
+            name: 'deviceReputationScore',
+            typeInfo: 'Int'
+          }, {
+            name: 'triggeredRules',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'triggeredRule'
+          }]
+      }, {
+        localName: 'ExtendedCardResponseType',
+        typeName: 'extendedCardResponseType',
+        propertyInfos: [{
+            name: 'message',
             required: true
           }, {
-            name: 'sellerMerchantCategoryCode',
+            name: 'code',
             required: true
+          }]
+      }, {
+        localName: 'DeleteDiscountType',
+        typeName: 'deleteDiscountType',
+        propertyInfos: [{
+            name: 'discountCode',
+            required: true
+          }]
+      }, {
+        localName: 'RecyclingType',
+        typeName: 'recyclingType',
+        propertyInfos: [{
+            name: 'recycleAdvice',
+            typeInfo: '.RecycleAdviceType'
+          }, {
+            name: 'recycleEngineActive',
+            typeInfo: 'Boolean'
           }]
       }, {
         localName: 'CustomBilling',
@@ -937,39 +1245,252 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'descriptor'
           }]
       }, {
-        localName: 'Wallet',
+        localName: 'HealthcareIIAS',
         typeName: null,
         propertyInfos: [{
-            name: 'walletSourceType',
+            name: 'healthcareAmounts',
+            required: true,
+            typeInfo: '.HealthcareAmounts'
+          }, {
+            name: 'iiasFlag',
+            required: true,
+            elementName: 'IIASFlag',
+            typeInfo: '.IIASFlagType'
+          }]
+      }, {
+        localName: 'FraudCheck',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'advancedFraudChecks',
+            typeInfo: '.AdvancedFraudChecksType'
+          }, {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'shipToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'TokenResponseType',
+        typeName: 'tokenResponseType',
+        propertyInfos: [{
+            name: 'litleToken'
+          }, {
+            name: 'tokenResponseCode',
             required: true
           }, {
-            name: 'walletSourceTypeId',
+            name: 'tokenMessage',
+            required: true
+          }, {
+            name: 'type',
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }, {
+            name: 'bin'
+          }, {
+            name: 'eCheckAccountSuffix'
+          }]
+      }, {
+        localName: 'SubmerchantDebitResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
             required: true
           }]
       }, {
-        localName: 'AuthInformation',
+        localName: 'RFRRequest',
         typeName: null,
         propertyInfos: [{
-            name: 'authDate',
+            name: 'accountUpdateFileRequestData',
             required: true,
+            typeInfo: '.AccountUpdateFileRequestData'
+          }, {
+            name: 'litleSessionId',
+            required: true,
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'MerchantDataType',
+        typeName: 'merchantDataType',
+        propertyInfos: [{
+            name: 'campaign'
+          }, {
+            name: 'affiliate'
+          }, {
+            name: 'merchantGroupingId'
+          }]
+      }, {
+        localName: 'DeactivateResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
             typeInfo: 'Date'
           }, {
-            name: 'authCode',
+            name: 'message',
             required: true
           }, {
             name: 'fraudResult',
             typeInfo: '.FraudResult'
           }, {
-            name: 'authAmount',
+            name: 'approvedAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'CaptureGivenAuth',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'authInformation',
+            required: true,
+            typeInfo: '.AuthInformation'
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'surchargeAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'shipToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'paypage',
+            required: true,
+            typeInfo: '.CardPaypageType'
+          }, {
+            name: 'token',
+            required: true,
+            typeInfo: '.CardTokenType'
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }, {
+            name: 'mpos',
+            required: true,
+            typeInfo: '.MposType'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'taxType',
+            typeInfo: '.GovtTaxTypeEnum'
+          }, {
+            name: 'billMeLaterRequest',
+            typeInfo: '.BillMeLaterRequest'
+          }, {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          }, {
+            name: 'processingInstructions',
+            typeInfo: '.ProcessingInstructions'
+          }, {
+            name: 'pos',
+            typeInfo: '.Pos'
+          }, {
+            name: 'amexAggregatorData',
+            typeInfo: '.AmexAggregatorData'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }, {
+            name: 'debtRepayment',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'processingType',
+            typeInfo: '.ProcessingTypeEnum'
+          }, {
+            name: 'originalNetworkTransactionId'
+          }, {
+            name: 'originalTransactionAmount',
             typeInfo: 'Integer'
           }]
       }, {
-        localName: 'EcheckAccountInfoType',
-        typeName: 'echeckAccountInfoType',
+        localName: 'UpdateSubscriptionResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
         propertyInfos: [{
-            name: 'accType',
-            required: true
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
           }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }]
+      }, {
+        localName: 'Pos',
+        typeName: null,
+        propertyInfos: [{
+            name: 'capability',
+            required: true,
+            typeInfo: '.PosCapabilityTypeEnum'
+          }, {
+            name: 'entryMode',
+            required: true,
+            typeInfo: '.PosEntryModeTypeEnum'
+          }, {
+            name: 'cardholderId',
+            required: true,
+            typeInfo: '.PosCardholderIdTypeEnum'
+          }, {
+            name: 'terminalId'
+          }, {
+            name: 'catLevel',
+            typeInfo: '.PosCatLevelEnum'
+          }]
+      }, {
+        localName: 'EcheckForTokenType',
+        typeName: 'echeckForTokenType',
+        propertyInfos: [{
             name: 'accNum',
             required: true
           }, {
@@ -977,113 +1498,68 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true
           }]
       }, {
-        localName: 'DeleteAddOnType',
-        typeName: 'deleteAddOnType',
+        localName: 'RecyclingRequestType',
+        typeName: 'recyclingRequestType',
         propertyInfos: [{
-            name: 'addOnCode',
-            required: true
+            name: 'recycleBy',
+            typeInfo: '.RecycleByTypeEnum'
+          }, {
+            name: 'recycleId'
           }]
       }, {
-        localName: 'DetailTax',
+        localName: 'ProcessingInstructions',
         typeName: null,
         propertyInfos: [{
-            name: 'taxIncludedInTotal',
+            name: 'bypassVelocityCheck',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'Capture',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroupAndPartial',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'surchargeAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          }, {
+            name: 'processingInstructions',
+            typeInfo: '.ProcessingInstructions'
+          }, {
+            name: 'payPalOrderComplete',
             typeInfo: 'Boolean'
           }, {
-            name: 'taxAmount',
-            required: true,
-            typeInfo: 'Integer'
+            name: 'payPalNotes'
           }, {
-            name: 'taxRate',
-            typeInfo: 'Decimal'
-          }, {
-            name: 'taxTypeIdentifier'
-          }, {
-            name: 'cardAcceptorTaxId'
+            name: 'pin'
           }]
       }, {
-        localName: 'RecycleAdviceType',
-        typeName: 'recycleAdviceType',
+        localName: 'AdvancedFraudChecksType',
+        typeName: 'advancedFraudChecksType',
         propertyInfos: [{
-            name: 'recycleAdviceEnd',
-            required: true
+            name: 'threatMetrixSessionId',
+            typeInfo: 'Token'
           }, {
-            name: 'nextRecycleTime',
-            required: true,
-            typeInfo: 'DateTime'
+            name: 'customAttribute1'
+          }, {
+            name: 'customAttribute2'
+          }, {
+            name: 'customAttribute3'
+          }, {
+            name: 'customAttribute4'
+          }, {
+            name: 'customAttribute5'
           }]
       }, {
-        localName: 'ApplepayHeaderType',
-        typeName: 'applepayHeaderType',
-        propertyInfos: [{
-            name: 'applicationData'
-          }, {
-            name: 'ephemeralPublicKey',
-            required: true
-          }, {
-            name: 'publicKeyHash',
-            required: true
-          }, {
-            name: 'transactionId',
-            required: true
-          }]
-      }, {
-        localName: 'Unload',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }]
-      }, {
-        localName: 'EnhancedAuthResponse.FundingSource',
-        typeName: null,
-        propertyInfos: [{
-            name: 'type',
-            required: true
-          }, {
-            name: 'availableBalance',
-            required: true
-          }, {
-            name: 'reloadable'
-          }, {
-            name: 'prepaidCardType'
-          }]
-      }, {
-        localName: 'VendorDebit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'vendorName',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'accountInfo',
-            required: true,
-            typeInfo: '.EcheckType'
-          }]
-      }, {
-        localName: 'EcheckVerificationResponse',
+        localName: 'CaptureResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -1091,43 +1567,7 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'Long'
           }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }]
-      }, {
-        localName: 'CardTokenTypeAU',
-        typeName: 'cardTokenTypeAU',
-        baseTypeInfo: '.CardTokenType',
-        propertyInfos: [{
-            name: 'bin'
-          }]
-      }, {
-        localName: 'LoadResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
+            name: 'orderId'
           }, {
             name: 'response',
             required: true
@@ -1141,6 +1581,9 @@ var litleBatch_v9_10_Module_Factory = function () {
           }, {
             name: 'message',
             required: true
+          }, {
+            name: 'accountUpdater',
+            typeInfo: '.AccountUpdater'
           }, {
             name: 'fraudResult',
             typeInfo: '.FraudResult'
@@ -1156,29 +1599,26 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'DriversLicenseInfo',
-        typeName: 'driversLicenseInfo',
+        localName: 'CreateDiscountType',
+        typeName: 'createDiscountType',
         propertyInfos: [{
-            name: 'licenseNumber',
+            name: 'discountCode',
             required: true
           }, {
-            name: 'state'
+            name: 'name',
+            required: true
           }, {
-            name: 'dateOfBirth'
-          }]
-      }, {
-        localName: 'AdvancedFraudResultsType',
-        typeName: 'advancedFraudResultsType',
-        propertyInfos: [{
-            name: 'deviceReviewStatus'
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
           }, {
-            name: 'deviceReputationScore',
-            typeInfo: 'Int'
+            name: 'startDate',
+            required: true,
+            typeInfo: 'Date'
           }, {
-            name: 'triggeredRules',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'triggeredRule'
+            name: 'endDate',
+            required: true,
+            typeInfo: 'Date'
           }]
       }, {
         localName: 'EcheckVerification',
@@ -1196,7 +1636,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: 'Integer'
           }, {
             name: 'orderSource',
-            required: true
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
           }, {
             name: 'billToAddress',
             required: true,
@@ -1213,104 +1654,59 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: '.MerchantDataType'
           }]
       }, {
-        localName: 'RFRRequest',
-        typeName: null,
+        localName: 'VirtualGiftCardType',
+        typeName: 'virtualGiftCardType',
         propertyInfos: [{
-            name: 'accountUpdateFileRequestData',
+            name: 'accountNumberLength',
             required: true,
-            typeInfo: '.AccountUpdateFileRequestData'
+            typeInfo: 'Integer'
           }, {
-            name: 'litleSessionId',
-            required: true,
-            typeInfo: 'Long'
+            name: 'giftCardBin',
+            required: true
           }]
       }, {
-        localName: 'ProcessingInstructions',
+        localName: 'TransactionTypeWithReportGroup',
+        typeName: 'transactionTypeWithReportGroup',
+        baseTypeInfo: '.TransactionType',
+        propertyInfos: [{
+            name: 'reportGroup',
+            required: true,
+            attributeName: {
+              localPart: 'reportGroup'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'CardTokenType',
+        typeName: 'cardTokenType',
+        propertyInfos: [{
+            name: 'litleToken',
+            required: true
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'type',
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }]
+      }, {
+        localName: 'EnhancedAuthResponse',
         typeName: null,
         propertyInfos: [{
-            name: 'bypassVelocityCheck',
+            name: 'fundingSource',
+            typeInfo: '.EnhancedAuthResponse.FundingSource'
+          }, {
+            name: 'affluence',
+            typeInfo: '.AffluenceTypeEnum'
+          }, {
+            name: 'issuerCountry'
+          }, {
+            name: 'cardProductType',
+            typeInfo: '.CardProductTypeEnum'
+          }, {
+            name: 'virtualAccountNumber',
             typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'HealthcareIIAS',
-        typeName: null,
-        propertyInfos: [{
-            name: 'healthcareAmounts',
-            required: true,
-            typeInfo: '.HealthcareAmounts'
-          }, {
-            name: 'iiasFlag',
-            required: true,
-            elementName: 'IIASFlag'
-          }]
-      }, {
-        localName: 'SubmerchantCredit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'submerchantName',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'accountInfo',
-            required: true,
-            typeInfo: '.EcheckType'
-          }]
-      }, {
-        localName: 'Load',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }]
-      }, {
-        localName: 'RefundReversalResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
           }]
       }, {
         localName: 'CreatePlan',
@@ -1326,7 +1722,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'description'
           }, {
             name: 'intervalType',
-            required: true
+            required: true,
+            typeInfo: '.IntervalTypeEnum'
           }, {
             name: 'amount',
             required: true,
@@ -1338,148 +1735,24 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'trialNumberOfIntervals',
             typeInfo: 'Integer'
           }, {
-            name: 'trialIntervalType'
+            name: 'trialIntervalType',
+            typeInfo: '.TrialIntervalTypeEnum'
           }, {
             name: 'active',
             typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'GiftCardResponse',
-        typeName: null,
+        localName: 'FilteringType',
+        typeName: 'filteringType',
         propertyInfos: [{
-            name: 'availableBalance'
+            name: 'prepaid',
+            typeInfo: 'Boolean'
           }, {
-            name: 'beginningBalance'
+            name: 'international',
+            typeInfo: 'Boolean'
           }, {
-            name: 'endingBalance'
-          }, {
-            name: 'cashBackAmount'
-          }]
-      }, {
-        localName: 'TransactionTypeOptionReportGroup',
-        typeName: 'transactionTypeOptionReportGroup',
-        baseTypeInfo: '.TransactionType',
-        propertyInfos: [{
-            name: 'reportGroup',
-            attributeName: {
-              localPart: 'reportGroup'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'PhysicalCheckDebit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'Activate',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'virtualGiftCard',
-            required: true,
-            typeInfo: '.VirtualGiftCardType'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }]
-      }, {
-        localName: 'AndroidpayResponse',
-        typeName: null,
-        propertyInfos: [{
-            name: 'cryptogram',
-            typeInfo: 'Base64Binary'
-          }, {
-            name: 'expMonth'
-          }, {
-            name: 'expYear'
-          }]
-      }, {
-        localName: 'EcheckCredit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'secondaryAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'billToAddress',
-            required: true,
-            typeInfo: '.Contact'
-          }, {
-            name: 'echeckOrEcheckToken',
-            required: true,
-            mixed: false,
-            allowDom: false,
-            typeInfo: 'AnyType',
-            type: 'elementRef'
-          }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
-          }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }]
-      }, {
-        localName: 'LoadReversalResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
+            name: 'chargeback',
+            typeInfo: 'Boolean'
           }]
       }, {
         localName: 'EcheckPreNoteCredit',
@@ -1490,7 +1763,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true
           }, {
             name: 'orderSource',
-            required: true
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
           }, {
             name: 'billToAddress',
             required: true,
@@ -1504,7 +1778,21 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: '.MerchantDataType'
           }]
       }, {
-        localName: 'ActivateResponse',
+        localName: 'CardPaypageType',
+        typeName: 'cardPaypageType',
+        propertyInfos: [{
+            name: 'paypageRegistrationId',
+            required: true
+          }, {
+            name: 'expDate'
+          }, {
+            name: 'cardValidationNum'
+          }, {
+            name: 'type',
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }]
+      }, {
+        localName: 'EcheckPreNoteCreditResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -1512,8 +1800,7 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'Long'
           }, {
-            name: 'orderId',
-            required: true
+            name: 'orderId'
           }, {
             name: 'response',
             required: true
@@ -1522,322 +1809,13 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'DateTime'
           }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
             name: 'message',
             required: true
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }, {
-            name: 'virtualGiftCardResponse',
-            typeInfo: '.VirtualGiftCardResponse'
           }, {
             name: 'duplicate',
             typeInfo: 'Boolean',
             attributeName: {
               localPart: 'duplicate'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'AuthReversal',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'surchargeAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'payPalNotes'
-          }, {
-            name: 'actionReason'
-          }]
-      }, {
-        localName: 'Sale',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'secondaryAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'surchargeAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'customerInfo',
-            typeInfo: '.CustomerInfo'
-          }, {
-            name: 'billToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'shipToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'applepay',
-            required: true,
-            typeInfo: '.ApplepayType'
-          }, {
-            name: 'paypage',
-            required: true,
-            typeInfo: '.CardPaypageType'
-          }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.CardTokenType'
-          }, {
-            name: 'paypal',
-            required: true,
-            typeInfo: '.PayPal'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }, {
-            name: 'mpos',
-            required: true,
-            typeInfo: '.MposType'
-          }, {
-            name: 'billMeLaterRequest',
-            typeInfo: '.BillMeLaterRequest'
-          }, {
-            name: 'cardholderAuthentication',
-            typeInfo: '.FraudCheckType'
-          }, {
-            name: 'fraudCheck',
-            typeInfo: '.FraudCheckType'
-          }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
-          }, {
-            name: 'taxType'
-          }, {
-            name: 'enhancedData',
-            typeInfo: '.EnhancedData'
-          }, {
-            name: 'processingInstructions',
-            typeInfo: '.ProcessingInstructions'
-          }, {
-            name: 'pos',
-            typeInfo: '.Pos'
-          }, {
-            name: 'payPalOrderComplete',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'payPalNotes'
-          }, {
-            name: 'amexAggregatorData',
-            typeInfo: '.AmexAggregatorData'
-          }, {
-            name: 'allowPartialAuth',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'healthcareIIAS',
-            typeInfo: '.HealthcareIIAS'
-          }, {
-            name: 'filtering',
-            typeInfo: '.FilteringType'
-          }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }, {
-            name: 'recyclingRequest',
-            typeInfo: '.RecyclingRequestType'
-          }, {
-            name: 'fraudFilterOverride',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'recurringRequest',
-            typeInfo: '.RecurringRequestType'
-          }, {
-            name: 'litleInternalRecurringRequest',
-            typeInfo: '.LitleInternalRecurringRequestType'
-          }, {
-            name: 'debtRepayment',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'advancedFraudChecks',
-            typeInfo: '.AdvancedFraudChecksType'
-          }, {
-            name: 'wallet',
-            typeInfo: '.Wallet'
-          }, {
-            name: 'processingType'
-          }, {
-            name: 'originalNetworkTransactionId'
-          }, {
-            name: 'originalTransactionAmount',
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'LitleResponse',
-        typeName: null,
-        propertyInfos: [{
-            name: 'rfrResponse',
-            required: true,
-            elementName: 'RFRResponse',
-            typeInfo: '.RFRResponse'
-          }, {
-            name: 'batchResponses',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'batchResponse',
-            typeInfo: '.BatchResponse'
-          }, {
-            name: 'version',
-            required: true,
-            attributeName: {
-              localPart: 'version'
-            },
-            type: 'attribute'
-          }, {
-            name: 'id',
-            attributeName: {
-              localPart: 'id'
-            },
-            type: 'attribute'
-          }, {
-            name: 'response',
-            required: true,
-            attributeName: {
-              localPart: 'response'
-            },
-            type: 'attribute'
-          }, {
-            name: 'message',
-            required: true,
-            attributeName: {
-              localPart: 'message'
-            },
-            type: 'attribute'
-          }, {
-            name: 'litleSessionId',
-            required: true,
-            typeInfo: 'Long',
-            attributeName: {
-              localPart: 'litleSessionId'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'VirtualGiftCardType',
-        typeName: 'virtualGiftCardType',
-        propertyInfos: [{
-            name: 'accountNumberLength',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'giftCardBin',
-            required: true
-          }]
-      }, {
-        localName: 'CaptureGivenAuthResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }]
-      }, {
-        localName: 'UpdateDiscountType',
-        typeName: 'updateDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }, {
-            name: 'name'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'VendorCredit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'vendorName',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'accountInfo',
-            required: true,
-            typeInfo: '.EcheckType'
-          }]
-      }, {
-        localName: 'RecurringTransactionType',
-        typeName: 'recurringTransactionType'
-      }, {
-        localName: 'TransactionTypeWithReportGroup',
-        typeName: 'transactionTypeWithReportGroup',
-        baseTypeInfo: '.TransactionType',
-        propertyInfos: [{
-            name: 'reportGroup',
-            required: true,
-            attributeName: {
-              localPart: 'reportGroup'
             },
             type: 'attribute'
           }]
@@ -1861,42 +1839,177 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'CardTokenInfoType',
-        typeName: 'cardTokenInfoType',
+        localName: 'EcheckCredit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'billToAddress',
+            required: true,
+            typeInfo: '.Contact'
+          }, {
+            name: 'echeckOrEcheckToken',
+            required: true,
+            mixed: false,
+            allowDom: false,
+            typeInfo: 'AnyType',
+            type: 'elementRef'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }]
+      }, {
+        localName: 'TransactionTypeOptionReportGroup',
+        typeName: 'transactionTypeOptionReportGroup',
+        baseTypeInfo: '.TransactionType',
+        propertyInfos: [{
+            name: 'reportGroup',
+            attributeName: {
+              localPart: 'reportGroup'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'EnhancedAuthResponse.FundingSource',
+        typeName: null,
+        propertyInfos: [{
+            name: 'type',
+            required: true,
+            typeInfo: '.FundingSourceTypeEnum'
+          }, {
+            name: 'availableBalance',
+            required: true
+          }, {
+            name: 'reloadable'
+          }, {
+            name: 'prepaidCardType'
+          }]
+      }, {
+        localName: 'EcheckTokenType',
+        typeName: 'echeckTokenType',
         propertyInfos: [{
             name: 'litleToken',
             required: true
           }, {
-            name: 'type',
+            name: 'routingNum',
             required: true
           }, {
-            name: 'expDate',
+            name: 'accType',
+            required: true,
+            typeInfo: '.EcheckAccountTypeEnum'
+          }, {
+            name: 'checkNum'
+          }]
+      }, {
+        localName: 'UpdateCardValidationNumOnTokenResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId'
+          }, {
+            name: 'response',
             required: true
           }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }]
+      }, {
+        localName: 'CardTokenTypeAU',
+        typeName: 'cardTokenTypeAU',
+        baseTypeInfo: '.CardTokenType',
+        propertyInfos: [{
             name: 'bin'
           }]
       }, {
-        localName: 'CardPaypageType',
-        typeName: 'cardPaypageType',
+        localName: 'RegisterTokenRequestType',
+        typeName: 'registerTokenRequestType',
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
+            name: 'orderId'
+          }, {
+            name: 'applepay',
+            required: true,
+            typeInfo: '.ApplepayType'
+          }, {
             name: 'paypageRegistrationId',
             required: true
           }, {
-            name: 'expDate'
+            name: 'echeckForToken',
+            required: true,
+            typeInfo: '.EcheckForTokenType'
+          }, {
+            name: 'accountNumber',
+            required: true
+          }, {
+            name: 'mpos',
+            required: true,
+            typeInfo: '.MposType'
           }, {
             name: 'cardValidationNum'
-          }, {
-            name: 'type'
           }]
       }, {
-        localName: 'RecyclingType',
-        typeName: 'recyclingType',
+        localName: 'RegisterTokenResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'recycleAdvice',
-            typeInfo: '.RecycleAdviceType'
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
           }, {
-            name: 'recycleEngineActive',
-            typeInfo: 'Boolean'
+            name: 'orderId'
+          }, {
+            name: 'litleToken'
+          }, {
+            name: 'bin'
+          }, {
+            name: 'type',
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }, {
+            name: 'eCheckAccountSuffix'
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'applepayResponse',
+            typeInfo: '.ApplepayResponse'
+          }, {
+            name: 'androidpayResponse',
+            typeInfo: '.AndroidpayResponse'
           }]
       }, {
         localName: 'AuthReversalResponse',
@@ -1934,571 +2047,47 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'CardType',
-        typeName: 'cardType',
+        localName: 'VirtualGiftCardResponse',
+        typeName: null,
         propertyInfos: [{
-            name: 'track',
-            required: true
-          }, {
-            name: 'type',
-            required: true
-          }, {
-            name: 'number'
-          }, {
-            name: 'expDate'
+            name: 'accountNumber'
           }, {
             name: 'cardValidationNum'
           }, {
             name: 'pin'
           }]
       }, {
-        localName: 'ApplepayResponse',
-        typeName: null,
+        localName: 'Contact',
+        typeName: 'contact',
         propertyInfos: [{
-            name: 'applicationPrimaryAccountNumber'
+            name: 'name'
           }, {
-            name: 'applicationExpirationDate'
+            name: 'firstName'
           }, {
-            name: 'currencyCode'
+            name: 'middleInitial'
           }, {
-            name: 'transactionAmount',
-            typeInfo: 'Integer'
+            name: 'lastName'
           }, {
-            name: 'cardholderName'
+            name: 'companyName'
           }, {
-            name: 'deviceManufacturerIdentifier'
+            name: 'addressLine1'
           }, {
-            name: 'paymentDataType'
+            name: 'addressLine2'
           }, {
-            name: 'onlinePaymentCryptogram',
-            typeInfo: 'Base64Binary'
+            name: 'addressLine3'
           }, {
-            name: 'eciIndicator'
-          }]
-      }, {
-        localName: 'EcheckPreNoteSale',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
+            name: 'city'
           }, {
-            name: 'orderSource',
-            required: true
+            name: 'state'
           }, {
-            name: 'billToAddress',
-            required: true,
-            typeInfo: '.Contact'
+            name: 'zip'
           }, {
-            name: 'echeck',
-            required: true,
-            typeInfo: '.EcheckType'
+            name: 'country',
+            typeInfo: '.CountryTypeEnum'
           }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }]
-      }, {
-        localName: 'UpdateSubscriptionResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true,
-            typeInfo: 'Long'
+            name: 'email'
           }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }]
-      }, {
-        localName: 'PayFacCreditResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }]
-      }, {
-        localName: 'Capture',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroupAndPartial',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'surchargeAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'enhancedData',
-            typeInfo: '.EnhancedData'
-          }, {
-            name: 'processingInstructions',
-            typeInfo: '.ProcessingInstructions'
-          }, {
-            name: 'payPalOrderComplete',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'payPalNotes'
-          }, {
-            name: 'pin'
-          }]
-      }, {
-        localName: 'UpdatePlan',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
-        propertyInfos: [{
-            name: 'planCode',
-            required: true
-          }, {
-            name: 'active',
-            required: true,
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'DeactivateResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'approvedAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }]
-      }, {
-        localName: 'EcheckRedepositResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'accountUpdater',
-            typeInfo: '.AccountUpdater'
-          }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }]
-      }, {
-        localName: 'SubmerchantDebitResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }]
-      }, {
-        localName: 'PayFacDebit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'FraudResult',
-        typeName: null,
-        propertyInfos: [{
-            name: 'avsResult'
-          }, {
-            name: 'cardValidationResult'
-          }, {
-            name: 'authenticationResult'
-          }, {
-            name: 'advancedAVSResult'
-          }, {
-            name: 'advancedFraudResults',
-            typeInfo: '.AdvancedFraudResultsType'
-          }]
-      }, {
-        localName: 'BalanceInquiry',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }]
-      }, {
-        localName: 'PhysicalCheckCreditResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
-          }]
-      }, {
-        localName: 'BatchResponse',
-        typeName: null,
-        propertyInfos: [{
-            name: 'recurringTransactionResponses',
-            minOccurs: 0,
-            collection: true,
-            mixed: false,
-            allowDom: false,
-            elementName: 'recurringTransactionResponse',
-            typeInfo: '.RecurringTransactionResponseType',
-            type: 'elementRef'
-          }, {
-            name: 'transactionResponses',
-            minOccurs: 0,
-            collection: true,
-            mixed: false,
-            allowDom: false,
-            elementName: 'transactionResponse',
-            typeInfo: '.TransactionTypeWithReportGroup',
-            type: 'elementRef'
-          }, {
-            name: 'id',
-            attributeName: {
-              localPart: 'id'
-            },
-            type: 'attribute'
-          }, {
-            name: 'litleBatchId',
-            required: true,
-            typeInfo: 'Long',
-            attributeName: {
-              localPart: 'litleBatchId'
-            },
-            type: 'attribute'
-          }, {
-            name: 'merchantId',
-            required: true,
-            attributeName: {
-              localPart: 'merchantId'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'Authentication',
-        typeName: null,
-        propertyInfos: [{
-            name: 'user',
-            required: true
-          }, {
-            name: 'password',
-            required: true
-          }]
-      }, {
-        localName: 'TokenResponseType',
-        typeName: 'tokenResponseType',
-        propertyInfos: [{
-            name: 'litleToken'
-          }, {
-            name: 'tokenResponseCode',
-            required: true
-          }, {
-            name: 'tokenMessage',
-            required: true
-          }, {
-            name: 'type'
-          }, {
-            name: 'bin'
-          }, {
-            name: 'eCheckAccountSuffix'
-          }]
-      }, {
-        localName: 'Credit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'secondaryAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'surchargeAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'billToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'paypal',
-            required: true,
-            typeInfo: '.Credit.Paypal'
-          }, {
-            name: 'paypage',
-            required: true,
-            typeInfo: '.CardPaypageType'
-          }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.CardTokenType'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }, {
-            name: 'mpos',
-            required: true,
-            typeInfo: '.MposType'
-          }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
-          }, {
-            name: 'taxType'
-          }, {
-            name: 'billMeLaterRequest',
-            typeInfo: '.BillMeLaterRequest'
-          }, {
-            name: 'enhancedData',
-            typeInfo: '.EnhancedData'
-          }, {
-            name: 'processingInstructions',
-            typeInfo: '.ProcessingInstructions'
-          }, {
-            name: 'pos',
-            typeInfo: '.Pos'
-          }, {
-            name: 'amexAggregatorData',
-            typeInfo: '.AmexAggregatorData'
-          }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }, {
-            name: 'pin'
-          }, {
-            name: 'payPalNotes'
-          }, {
-            name: 'actionReason'
-          }]
-      }, {
-        localName: 'CardTokenType',
-        typeName: 'cardTokenType',
-        propertyInfos: [{
-            name: 'litleToken',
-            required: true
-          }, {
-            name: 'expDate'
-          }, {
-            name: 'cardValidationNum'
-          }, {
-            name: 'type'
-          }]
-      }, {
-        localName: 'AccountUpdateFileRequestData',
-        typeName: null,
-        propertyInfos: [{
-            name: 'merchantId',
-            required: true
-          }, {
-            name: 'postDay',
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'RFRResponse',
-        typeName: null,
-        propertyInfos: [{
-            name: 'response',
-            required: true,
-            attributeName: {
-              localPart: 'response'
-            },
-            type: 'attribute'
-          }, {
-            name: 'message',
-            required: true,
-            attributeName: {
-              localPart: 'message'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'AccountInfoType',
-        typeName: 'accountInfoType',
-        propertyInfos: [{
-            name: 'type',
-            required: true
-          }, {
-            name: 'number'
-          }]
-      }, {
-        localName: 'CancelSubscription',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true,
-            typeInfo: 'Long'
-          }]
-      }, {
-        localName: 'LitleRequest',
-        typeName: null,
-        propertyInfos: [{
-            name: 'authentication',
-            required: true,
-            typeInfo: '.Authentication'
-          }, {
-            name: 'rfrRequest',
-            elementName: 'RFRRequest',
-            typeInfo: '.RFRRequest'
-          }, {
-            name: 'batchRequests',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'batchRequest',
-            typeInfo: '.BatchRequest'
-          }, {
-            name: 'version',
-            required: true,
-            attributeName: {
-              localPart: 'version'
-            },
-            type: 'attribute'
-          }, {
-            name: 'id',
-            attributeName: {
-              localPart: 'id'
-            },
-            type: 'attribute'
-          }, {
-            name: 'numBatchRequests',
-            required: true,
-            typeInfo: 'Integer',
-            attributeName: {
-              localPart: 'numBatchRequests'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'LitleInternalRecurringRequestType',
-        typeName: 'litleInternalRecurringRequestType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'recurringTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'finalPayment',
-            required: true,
-            typeInfo: 'Boolean'
-          }]
-      }, {
-        localName: 'Pos',
-        typeName: null,
-        propertyInfos: [{
-            name: 'capability',
-            required: true
-          }, {
-            name: 'entryMode',
-            required: true
-          }, {
-            name: 'cardholderId',
-            required: true
-          }, {
-            name: 'terminalId'
-          }, {
-            name: 'catLevel'
+            name: 'phone'
           }]
       }, {
         localName: 'SaleResponse',
@@ -2579,22 +2168,7 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'Deactivate',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }]
-      }, {
-        localName: 'ReserveDebitResponse',
+        localName: 'PayFacCreditResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -2614,6 +2188,252 @@ var litleBatch_v9_10_Module_Factory = function () {
           }, {
             name: 'message',
             required: true
+          }]
+      }, {
+        localName: 'EcheckTokenInfoType',
+        typeName: 'echeckTokenInfoType',
+        propertyInfos: [{
+            name: 'accType',
+            required: true,
+            typeInfo: '.EcheckAccountTypeEnum'
+          }, {
+            name: 'litleToken',
+            required: true
+          }, {
+            name: 'routingNum',
+            required: true
+          }]
+      }, {
+        localName: 'SubmerchantCredit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'submerchantName',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'accountInfo',
+            required: true,
+            typeInfo: '.EcheckType'
+          }]
+      }, {
+        localName: 'RecycleAdviceType',
+        typeName: 'recycleAdviceType',
+        propertyInfos: [{
+            name: 'recycleAdviceEnd',
+            required: true
+          }, {
+            name: 'nextRecycleTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }]
+      }, {
+        localName: 'PayPal',
+        typeName: 'payPal',
+        propertyInfos: [{
+            name: 'payerId',
+            required: true
+          }, {
+            name: 'token'
+          }, {
+            name: 'transactionId',
+            required: true
+          }]
+      }, {
+        localName: 'Unload',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }]
+      }, {
+        localName: 'CreditResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId'
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }, {
+            name: 'duplicate',
+            typeInfo: 'Boolean',
+            attributeName: {
+              localPart: 'duplicate'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'AuthInformation',
+        typeName: null,
+        propertyInfos: [{
+            name: 'authDate',
+            required: true,
+            typeInfo: 'Date'
+          }, {
+            name: 'authCode',
+            required: true
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'authAmount',
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'Credit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'secondaryAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'surchargeAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'billToAddress',
+            typeInfo: '.Contact'
+          }, {
+            name: 'paypal',
+            required: true,
+            typeInfo: '.Credit.Paypal'
+          }, {
+            name: 'paypage',
+            required: true,
+            typeInfo: '.CardPaypageType'
+          }, {
+            name: 'token',
+            required: true,
+            typeInfo: '.CardTokenType'
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }, {
+            name: 'mpos',
+            required: true,
+            typeInfo: '.MposType'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'taxType',
+            typeInfo: '.GovtTaxTypeEnum'
+          }, {
+            name: 'billMeLaterRequest',
+            typeInfo: '.BillMeLaterRequest'
+          }, {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          }, {
+            name: 'processingInstructions',
+            typeInfo: '.ProcessingInstructions'
+          }, {
+            name: 'pos',
+            typeInfo: '.Pos'
+          }, {
+            name: 'amexAggregatorData',
+            typeInfo: '.AmexAggregatorData'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }, {
+            name: 'pin'
+          }, {
+            name: 'payPalNotes'
+          }, {
+            name: 'actionReason'
+          }]
+      }, {
+        localName: 'DriversLicenseInfo',
+        typeName: 'driversLicenseInfo',
+        propertyInfos: [{
+            name: 'licenseNumber',
+            required: true
+          }, {
+            name: 'state'
+          }, {
+            name: 'dateOfBirth'
+          }]
+      }, {
+        localName: 'HealthcareAmounts',
+        typeName: null,
+        propertyInfos: [{
+            name: 'totalHealthcareAmount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'rxAmount',
+            elementName: 'RxAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'visionAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'clinicOtherAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'dentalAmount',
+            typeInfo: 'Integer'
           }]
       }, {
         localName: 'DeactivateReversalResponse',
@@ -2644,21 +2464,533 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: '.GiftCardResponse'
           }]
       }, {
-        localName: 'AdvancedFraudChecksType',
-        typeName: 'advancedFraudChecksType',
+        localName: 'EcheckPreNoteSale',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'threatMetrixSessionId',
-            typeInfo: 'Token'
+            name: 'orderId',
+            required: true
           }, {
-            name: 'customAttribute1'
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
           }, {
-            name: 'customAttribute2'
+            name: 'billToAddress',
+            required: true,
+            typeInfo: '.Contact'
           }, {
-            name: 'customAttribute3'
+            name: 'echeck',
+            required: true,
+            typeInfo: '.EcheckType'
           }, {
-            name: 'customAttribute4'
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }]
+      }, {
+        localName: 'ReserveDebitResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
           }, {
-            name: 'customAttribute5'
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
+            required: true
+          }]
+      }, {
+        localName: 'UpdatePlanResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }]
+      }, {
+        localName: 'Load',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }]
+      }, {
+        localName: 'PayFacCredit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'CustomerInfo',
+        typeName: null,
+        propertyInfos: [{
+            name: 'ssn'
+          }, {
+            name: 'dob',
+            typeInfo: 'Date'
+          }, {
+            name: 'customerRegistrationDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'customerType',
+            values: ['New', 'Existing']
+          }, {
+            name: 'incomeAmount',
+            typeInfo: 'Long'
+          }, {
+            name: 'incomeCurrency',
+            typeInfo: '.CurrencyCodeEnum'
+          }, {
+            name: 'customerCheckingAccount',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'customerSavingAccount',
+            typeInfo: 'Boolean'
+          }, {
+            name: 'employerName'
+          }, {
+            name: 'customerWorkTelephone'
+          }, {
+            name: 'residenceStatus',
+            values: ['Own', 'Rent', 'Other']
+          }, {
+            name: 'yearsAtResidence',
+            typeInfo: 'Int'
+          }, {
+            name: 'yearsAtEmployer',
+            typeInfo: 'Int'
+          }]
+      }, {
+        localName: 'Activate',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'virtualGiftCard',
+            required: true,
+            typeInfo: '.VirtualGiftCardType'
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }]
+      }, {
+        localName: 'EcheckRedepositResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'accountUpdater',
+            typeInfo: '.AccountUpdater'
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }]
+      }, {
+        localName: 'AmexAggregatorData',
+        typeName: null,
+        propertyInfos: [{
+            name: 'sellerId',
+            required: true
+          }, {
+            name: 'sellerMerchantCategoryCode',
+            required: true
+          }]
+      }, {
+        localName: 'LitleResponse',
+        typeName: null,
+        propertyInfos: [{
+            name: 'rfrResponse',
+            required: true,
+            elementName: 'RFRResponse',
+            typeInfo: '.RFRResponse'
+          }, {
+            name: 'batchResponses',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'batchResponse',
+            typeInfo: '.BatchResponse'
+          }, {
+            name: 'version',
+            required: true,
+            attributeName: {
+              localPart: 'version'
+            },
+            type: 'attribute'
+          }, {
+            name: 'id',
+            attributeName: {
+              localPart: 'id'
+            },
+            type: 'attribute'
+          }, {
+            name: 'response',
+            required: true,
+            attributeName: {
+              localPart: 'response'
+            },
+            type: 'attribute'
+          }, {
+            name: 'message',
+            required: true,
+            attributeName: {
+              localPart: 'message'
+            },
+            type: 'attribute'
+          }, {
+            name: 'litleSessionId',
+            required: true,
+            typeInfo: 'Long',
+            attributeName: {
+              localPart: 'litleSessionId'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'PhysicalCheckCreditResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
+            required: true
+          }]
+      }, {
+        localName: 'EcheckRedeposit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'echeckOrEcheckToken',
+            mixed: false,
+            allowDom: false,
+            typeInfo: 'AnyType',
+            type: 'elementRef'
+          }, {
+            name: 'merchantData',
+            typeInfo: '.MerchantDataType'
+          }]
+      }, {
+        localName: 'CreatePlanResponse',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }]
+      }, {
+        localName: 'DeleteAddOnType',
+        typeName: 'deleteAddOnType',
+        propertyInfos: [{
+            name: 'addOnCode',
+            required: true
+          }]
+      }, {
+        localName: 'PayFacDebit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'RecurringSubscriptionType',
+        typeName: 'recurringSubscriptionType',
+        propertyInfos: [{
+            name: 'planCode',
+            required: true
+          }, {
+            name: 'numberOfPayments',
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'createDiscounts',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createDiscount',
+            typeInfo: '.CreateDiscountType'
+          }, {
+            name: 'createAddOns',
+            minOccurs: 0,
+            collection: true,
+            elementName: 'createAddOn',
+            typeInfo: '.CreateAddOnType'
+          }]
+      }, {
+        localName: 'UpdateCardValidationNumOnToken',
+        typeName: 'updateCardValidationNumOnToken',
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId'
+          }, {
+            name: 'litleToken',
+            required: true
+          }, {
+            name: 'cardValidationNum',
+            required: true
+          }]
+      }, {
+        localName: 'UnloadReversalResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'RecurringRequestType',
+        typeName: 'recurringRequestType',
+        propertyInfos: [{
+            name: 'subscription',
+            required: true,
+            typeInfo: '.RecurringSubscriptionType'
+          }]
+      }, {
+        localName: 'SubmerchantDebit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'submerchantName',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }, {
+            name: 'accountInfo',
+            required: true,
+            typeInfo: '.EcheckType'
+          }]
+      }, {
+        localName: 'AuthorizationResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'cardProductId'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'authCode'
+          }, {
+            name: 'authorizationResponseSubCode'
+          }, {
+            name: 'approvedAmount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'accountInformation',
+            typeInfo: '.AccountInfoType'
+          }, {
+            name: 'accountUpdater',
+            typeInfo: '.AccountUpdater'
+          }, {
+            name: 'fraudResult',
+            typeInfo: '.FraudResult'
+          }, {
+            name: 'billMeLaterResponseData',
+            typeInfo: '.BillMeLaterResponseData'
+          }, {
+            name: 'tokenResponse',
+            typeInfo: '.TokenResponseType'
+          }, {
+            name: 'enhancedAuthResponse',
+            typeInfo: '.EnhancedAuthResponse'
+          }, {
+            name: 'recycling',
+            typeInfo: '.RecyclingType'
+          }, {
+            name: 'recurringResponse',
+            typeInfo: '.RecurringResponseType'
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }, {
+            name: 'applepayResponse',
+            typeInfo: '.ApplepayResponse'
+          }, {
+            name: 'cardSuffix'
+          }, {
+            name: 'androidpayResponse',
+            typeInfo: '.AndroidpayResponse'
+          }, {
+            name: 'networkTransactionId'
+          }]
+      }, {
+        localName: 'RefundReversalResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
+          }]
+      }, {
+        localName: 'MposType',
+        typeName: 'mposType',
+        propertyInfos: [{
+            name: 'ksn',
+            required: true
+          }, {
+            name: 'formatId',
+            required: true
+          }, {
+            name: 'encryptedTrack',
+            required: true
+          }, {
+            name: 'track1Status',
+            required: true,
+            typeInfo: 'Int'
+          }, {
+            name: 'track2Status',
+            required: true,
+            typeInfo: 'Int'
           }]
       }, {
         localName: 'EcheckCreditResponse',
@@ -2698,39 +3030,72 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'RecurringResponseType',
-        typeName: 'recurringResponseType',
+        localName: 'CancelSubscription',
+        typeName: null,
+        baseTypeInfo: '.RecurringTransactionType',
+        propertyInfos: [{
+            name: 'subscriptionId',
+            required: true,
+            typeInfo: 'Long'
+          }]
+      }, {
+        localName: 'LitleInternalRecurringRequestType',
+        typeName: 'litleInternalRecurringRequestType',
         propertyInfos: [{
             name: 'subscriptionId',
             required: true,
             typeInfo: 'Long'
           }, {
-            name: 'responseCode',
-            required: true
-          }, {
-            name: 'responseMessage',
-            required: true
-          }, {
             name: 'recurringTxnId',
+            required: true,
             typeInfo: 'Long'
-          }]
-      }, {
-        localName: 'FraudCheckType',
-        typeName: 'fraudCheckType',
-        propertyInfos: [{
-            name: 'authenticationValue',
-            typeInfo: 'Base64Binary'
           }, {
-            name: 'authenticationTransactionId',
-            typeInfo: 'Base64Binary'
-          }, {
-            name: 'customerIpAddress'
-          }, {
-            name: 'authenticatedByMerchant',
+            name: 'finalPayment',
+            required: true,
             typeInfo: 'Boolean'
           }]
       }, {
-        localName: 'CaptureResponse',
+        localName: 'BillMeLaterResponseData',
+        typeName: null,
+        propertyInfos: [{
+            name: 'bmlMerchantId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'promotionalOfferCode'
+          }, {
+            name: 'approvedTermsCode',
+            typeInfo: 'Int'
+          }, {
+            name: 'creditLine',
+            typeInfo: 'Integer'
+          }, {
+            name: 'addressIndicator'
+          }, {
+            name: 'loanToValueEstimator'
+          }, {
+            name: 'riskEstimator'
+          }, {
+            name: 'riskQueueAssignment'
+          }]
+      }, {
+        localName: 'TransactionType',
+        typeName: 'transactionType',
+        propertyInfos: [{
+            name: 'id',
+            attributeName: {
+              localPart: 'id'
+            },
+            type: 'attribute'
+          }, {
+            name: 'customerId',
+            attributeName: {
+              localPart: 'customerId'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'EcheckPreNoteSaleResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -2747,20 +3112,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'DateTime'
           }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
             name: 'message',
             required: true
-          }, {
-            name: 'accountUpdater',
-            typeInfo: '.AccountUpdater'
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
           }, {
             name: 'duplicate',
             typeInfo: 'Boolean',
@@ -2770,128 +3123,74 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'CaptureGivenAuth',
+        localName: 'CancelSubscriptionResponse',
         typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        baseTypeInfo: '.RecurringTransactionResponseType',
         propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'authInformation',
-            required: true,
-            typeInfo: '.AuthInformation'
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'secondaryAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'surchargeAmount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'orderSource',
-            required: true
-          }, {
-            name: 'billToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'shipToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'paypage',
-            required: true,
-            typeInfo: '.CardPaypageType'
-          }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.CardTokenType'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }, {
-            name: 'mpos',
-            required: true,
-            typeInfo: '.MposType'
-          }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
-          }, {
-            name: 'taxType'
-          }, {
-            name: 'billMeLaterRequest',
-            typeInfo: '.BillMeLaterRequest'
-          }, {
-            name: 'enhancedData',
-            typeInfo: '.EnhancedData'
-          }, {
-            name: 'processingInstructions',
-            typeInfo: '.ProcessingInstructions'
-          }, {
-            name: 'pos',
-            typeInfo: '.Pos'
-          }, {
-            name: 'amexAggregatorData',
-            typeInfo: '.AmexAggregatorData'
-          }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }, {
-            name: 'debtRepayment',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'processingType'
-          }, {
-            name: 'originalNetworkTransactionId'
-          }, {
-            name: 'originalTransactionAmount',
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'PhysicalCheckDebitResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
+            name: 'subscriptionId',
             required: true,
             typeInfo: 'Long'
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'message',
-            required: true
           }]
       }, {
-        localName: 'VendorDebitResponse',
+        localName: 'RFRResponse',
         typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
             name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
             required: true,
-            typeInfo: 'DateTime'
+            attributeName: {
+              localPart: 'response'
+            },
+            type: 'attribute'
           }, {
             name: 'message',
-            required: true
+            required: true,
+            attributeName: {
+              localPart: 'message'
+            },
+            type: 'attribute'
+          }]
+      }, {
+        localName: 'BatchResponse',
+        typeName: null,
+        propertyInfos: [{
+            name: 'recurringTransactionResponses',
+            minOccurs: 0,
+            collection: true,
+            mixed: false,
+            allowDom: false,
+            elementName: 'recurringTransactionResponse',
+            typeInfo: '.RecurringTransactionResponseType',
+            type: 'elementRef'
+          }, {
+            name: 'transactionResponses',
+            minOccurs: 0,
+            collection: true,
+            mixed: false,
+            allowDom: false,
+            elementName: 'transactionResponse',
+            typeInfo: '.TransactionTypeWithReportGroup',
+            type: 'elementRef'
+          }, {
+            name: 'id',
+            attributeName: {
+              localPart: 'id'
+            },
+            type: 'attribute'
+          }, {
+            name: 'litleBatchId',
+            required: true,
+            typeInfo: 'Long',
+            attributeName: {
+              localPart: 'litleBatchId'
+            },
+            type: 'attribute'
+          }, {
+            name: 'merchantId',
+            required: true,
+            attributeName: {
+              localPart: 'merchantId'
+            },
+            type: 'attribute'
           }]
       }, {
         localName: 'DepositReversalResponse',
@@ -2920,56 +3219,6 @@ var litleBatch_v9_10_Module_Factory = function () {
           }, {
             name: 'giftCardResponse',
             typeInfo: '.GiftCardResponse'
-          }]
-      }, {
-        localName: 'ForceCaptureResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'postDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'tokenResponse',
-            typeInfo: '.TokenResponseType'
-          }, {
-            name: 'accountUpdater',
-            typeInfo: '.AccountUpdater'
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }]
-      }, {
-        localName: 'EcheckTokenInfoType',
-        typeName: 'echeckTokenInfoType',
-        propertyInfos: [{
-            name: 'accType',
-            required: true
-          }, {
-            name: 'litleToken',
-            required: true
-          }, {
-            name: 'routingNum',
-            required: true
           }]
       }, {
         localName: 'BatchRequest',
@@ -3433,244 +3682,26 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
-        localName: 'ApplepayType',
-        typeName: 'applepayType',
-        propertyInfos: [{
-            name: 'data',
-            required: true
-          }, {
-            name: 'header',
-            required: true,
-            typeInfo: '.ApplepayHeaderType'
-          }, {
-            name: 'signature',
-            required: true
-          }, {
-            name: 'version',
-            required: true
-          }]
-      }, {
-        localName: 'MposType',
-        typeName: 'mposType',
-        propertyInfos: [{
-            name: 'ksn',
-            required: true
-          }, {
-            name: 'formatId',
-            required: true
-          }, {
-            name: 'encryptedTrack',
-            required: true
-          }, {
-            name: 'track1Status',
-            required: true,
-            typeInfo: 'Int'
-          }, {
-            name: 'track2Status',
-            required: true,
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'MerchantDataType',
-        typeName: 'merchantDataType',
-        propertyInfos: [{
-            name: 'campaign'
-          }, {
-            name: 'affiliate'
-          }, {
-            name: 'merchantGroupingId'
-          }]
-      }, {
-        localName: 'ForceCapture',
+        localName: 'AuthReversal',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
-            name: 'orderId',
-            required: true
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
           }, {
             name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'secondaryAmount',
             typeInfo: 'Integer'
           }, {
             name: 'surchargeAmount',
             typeInfo: 'Integer'
           }, {
-            name: 'orderSource',
-            required: true
+            name: 'payPalNotes'
           }, {
-            name: 'billToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'paypage',
-            required: true,
-            typeInfo: '.CardPaypageType'
-          }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.CardTokenType'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }, {
-            name: 'mpos',
-            required: true,
-            typeInfo: '.MposType'
-          }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
-          }, {
-            name: 'taxType'
-          }, {
-            name: 'enhancedData',
-            typeInfo: '.EnhancedData'
-          }, {
-            name: 'processingInstructions',
-            typeInfo: '.ProcessingInstructions'
-          }, {
-            name: 'pos',
-            typeInfo: '.Pos'
-          }, {
-            name: 'amexAggregatorData',
-            typeInfo: '.AmexAggregatorData'
-          }, {
-            name: 'merchantData',
-            typeInfo: '.MerchantDataType'
-          }, {
-            name: 'debtRepayment',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'processingType'
+            name: 'actionReason'
           }]
       }, {
-        localName: 'CreateDiscountType',
-        typeName: 'createDiscountType',
-        propertyInfos: [{
-            name: 'discountCode',
-            required: true
-          }, {
-            name: 'name',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            required: true,
-            typeInfo: 'Date'
-          }, {
-            name: 'endDate',
-            required: true,
-            typeInfo: 'Date'
-          }]
-      }, {
-        localName: 'CustomerInfo',
-        typeName: null,
-        propertyInfos: [{
-            name: 'ssn'
-          }, {
-            name: 'dob',
-            typeInfo: 'Date'
-          }, {
-            name: 'customerRegistrationDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'customerType'
-          }, {
-            name: 'incomeAmount',
-            typeInfo: 'Long'
-          }, {
-            name: 'incomeCurrency'
-          }, {
-            name: 'customerCheckingAccount',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'customerSavingAccount',
-            typeInfo: 'Boolean'
-          }, {
-            name: 'employerName'
-          }, {
-            name: 'customerWorkTelephone'
-          }, {
-            name: 'residenceStatus'
-          }, {
-            name: 'yearsAtResidence',
-            typeInfo: 'Int'
-          }, {
-            name: 'yearsAtEmployer',
-            typeInfo: 'Int'
-          }]
-      }, {
-        localName: 'UpdateSubscription',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionType',
-        propertyInfos: [{
-            name: 'subscriptionId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'planCode'
-          }, {
-            name: 'billToAddress',
-            typeInfo: '.Contact'
-          }, {
-            name: 'paypage',
-            required: true,
-            typeInfo: '.CardPaypageType'
-          }, {
-            name: 'token',
-            required: true,
-            typeInfo: '.CardTokenType'
-          }, {
-            name: 'card',
-            required: true,
-            typeInfo: '.CardType'
-          }, {
-            name: 'billingDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'createDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createDiscount',
-            typeInfo: '.CreateDiscountType'
-          }, {
-            name: 'updateDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'updateDiscount',
-            typeInfo: '.UpdateDiscountType'
-          }, {
-            name: 'deleteDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'deleteDiscount',
-            typeInfo: '.DeleteDiscountType'
-          }, {
-            name: 'createAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createAddOn',
-            typeInfo: '.CreateAddOnType'
-          }, {
-            name: 'updateAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'updateAddOn',
-            typeInfo: '.UpdateAddOnType'
-          }, {
-            name: 'deleteAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'deleteAddOn',
-            typeInfo: '.DeleteAddOnType'
-          }]
-      }, {
-        localName: 'PayFacDebitResponse',
+        localName: 'PhysicalCheckDebitResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -3692,85 +3723,13 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true
           }]
       }, {
-        localName: 'RecurringSubscriptionType',
-        typeName: 'recurringSubscriptionType',
-        propertyInfos: [{
-            name: 'planCode',
-            required: true
-          }, {
-            name: 'numberOfPayments',
-            typeInfo: 'Integer'
-          }, {
-            name: 'startDate',
-            typeInfo: 'Date'
-          }, {
-            name: 'amount',
-            typeInfo: 'Integer'
-          }, {
-            name: 'createDiscounts',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createDiscount',
-            typeInfo: '.CreateDiscountType'
-          }, {
-            name: 'createAddOns',
-            minOccurs: 0,
-            collection: true,
-            elementName: 'createAddOn',
-            typeInfo: '.CreateAddOnType'
-          }]
-      }, {
-        localName: 'RegisterTokenResponse',
+        localName: 'Sale',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
             name: 'litleTxnId',
-            required: true,
             typeInfo: 'Long'
           }, {
-            name: 'orderId'
-          }, {
-            name: 'litleToken'
-          }, {
-            name: 'bin'
-          }, {
-            name: 'type'
-          }, {
-            name: 'eCheckAccountSuffix'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }, {
-            name: 'applepayResponse',
-            typeInfo: '.ApplepayResponse'
-          }, {
-            name: 'androidpayResponse',
-            typeInfo: '.AndroidpayResponse'
-          }]
-      }, {
-        localName: 'PayPal',
-        typeName: 'payPal',
-        propertyInfos: [{
-            name: 'payerId',
-            required: true
-          }, {
-            name: 'token'
-          }, {
-            name: 'transactionId',
-            required: true
-          }]
-      }, {
-        localName: 'Authorization',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
             name: 'orderId',
             required: true
           }, {
@@ -3785,7 +3744,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             typeInfo: 'Integer'
           }, {
             name: 'orderSource',
-            required: true
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
           }, {
             name: 'customerInfo',
             typeInfo: '.CustomerInfo'
@@ -3826,19 +3786,28 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'cardholderAuthentication',
             typeInfo: '.FraudCheckType'
           }, {
+            name: 'fraudCheck',
+            typeInfo: '.FraudCheckType'
+          }, {
+            name: 'customBilling',
+            typeInfo: '.CustomBilling'
+          }, {
+            name: 'taxType',
+            typeInfo: '.GovtTaxTypeEnum'
+          }, {
+            name: 'enhancedData',
+            typeInfo: '.EnhancedData'
+          }, {
             name: 'processingInstructions',
             typeInfo: '.ProcessingInstructions'
           }, {
             name: 'pos',
             typeInfo: '.Pos'
           }, {
-            name: 'customBilling',
-            typeInfo: '.CustomBilling'
+            name: 'payPalOrderComplete',
+            typeInfo: 'Boolean'
           }, {
-            name: 'taxType'
-          }, {
-            name: 'enhancedData',
-            typeInfo: '.EnhancedData'
+            name: 'payPalNotes'
           }, {
             name: 'amexAggregatorData',
             typeInfo: '.AmexAggregatorData'
@@ -3864,6 +3833,9 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'recurringRequest',
             typeInfo: '.RecurringRequestType'
           }, {
+            name: 'litleInternalRecurringRequest',
+            typeInfo: '.LitleInternalRecurringRequestType'
+          }, {
             name: 'debtRepayment',
             typeInfo: 'Boolean'
           }, {
@@ -3873,17 +3845,228 @@ var litleBatch_v9_10_Module_Factory = function () {
             name: 'wallet',
             typeInfo: '.Wallet'
           }, {
-            name: 'processingType'
+            name: 'processingType',
+            typeInfo: '.ProcessingTypeEnum'
           }, {
             name: 'originalNetworkTransactionId'
           }, {
             name: 'originalTransactionAmount',
             typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'CardAccountInfoType',
+        typeName: 'cardAccountInfoType',
+        propertyInfos: [{
+            name: 'type',
+            required: true,
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
           }, {
+            name: 'number',
+            required: true
+          }, {
+            name: 'expDate',
+            required: true
+          }]
+      }, {
+        localName: 'UpdateDiscountType',
+        typeName: 'updateDiscountType',
+        propertyInfos: [{
+            name: 'discountCode',
+            required: true
+          }, {
+            name: 'name'
+          }, {
+            name: 'amount',
+            typeInfo: 'Integer'
+          }, {
+            name: 'startDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'endDate',
+            typeInfo: 'Date'
+          }]
+      }, {
+        localName: 'BalanceInquiry',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'orderSource',
+            required: true,
+            values: ['ecommerce', 'installment', 'mailorder', 'recurring', 'retail', 'telephone', '3dsAuthenticated', '3dsAttempted', 'recurringtel', 'echeckppd', 'applepay', 'androidpay']
+          }, {
+            name: 'card',
+            required: true,
+            typeInfo: '.CardType'
+          }]
+      }, {
+        localName: 'LoadReversalResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
             name: 'litleTxnId',
             required: true,
             typeInfo: 'Long'
+          }, {
+            name: 'orderId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'postDate',
+            typeInfo: 'Date'
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'giftCardResponse',
+            typeInfo: '.GiftCardResponse'
           }]
+      }, {
+        localName: 'FraudCheckResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'advancedFraudResults',
+            typeInfo: '.AdvancedFraudResultsType'
+          }]
+      }, {
+        localName: 'VendorDebitResponse',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }, {
+            name: 'message',
+            required: true
+          }]
+      }, {
+        localName: 'FraudCheckType',
+        typeName: 'fraudCheckType',
+        propertyInfos: [{
+            name: 'authenticationValue',
+            typeInfo: 'Base64Binary'
+          }, {
+            name: 'authenticationTransactionId',
+            typeInfo: 'Base64Binary'
+          }, {
+            name: 'customerIpAddress'
+          }, {
+            name: 'authenticatedByMerchant',
+            typeInfo: 'Boolean'
+          }]
+      }, {
+        localName: 'ApplepayHeaderType',
+        typeName: 'applepayHeaderType',
+        propertyInfos: [{
+            name: 'applicationData'
+          }, {
+            name: 'ephemeralPublicKey',
+            required: true
+          }, {
+            name: 'publicKeyHash',
+            required: true
+          }, {
+            name: 'transactionId',
+            required: true
+          }]
+      }, {
+        localName: 'AccountUpdateFileRequestData',
+        typeName: null,
+        propertyInfos: [{
+            name: 'merchantId',
+            required: true
+          }, {
+            name: 'postDay',
+            typeInfo: 'Date'
+          }]
+      }, {
+        localName: 'RecurringTransactionResponseType',
+        typeName: 'recurringTransactionResponseType',
+        propertyInfos: [{
+            name: 'litleTxnId',
+            required: true,
+            typeInfo: 'Long'
+          }, {
+            name: 'response',
+            required: true
+          }, {
+            name: 'message',
+            required: true
+          }, {
+            name: 'responseTime',
+            required: true,
+            typeInfo: 'DateTime'
+          }]
+      }, {
+        localName: 'EcheckType',
+        typeName: 'echeckType',
+        propertyInfos: [{
+            name: 'accType',
+            required: true,
+            typeInfo: '.EcheckAccountTypeEnum'
+          }, {
+            name: 'accNum',
+            required: true
+          }, {
+            name: 'routingNum',
+            required: true
+          }, {
+            name: 'checkNum'
+          }, {
+            name: 'ccdPaymentInformation'
+          }]
+      }, {
+        localName: 'ReserveDebit',
+        typeName: null,
+        baseTypeInfo: '.TransactionTypeWithReportGroup',
+        propertyInfos: [{
+            name: 'fundingSubmerchantId',
+            required: true
+          }, {
+            name: 'fundsTransferId',
+            required: true
+          }, {
+            name: 'amount',
+            required: true,
+            typeInfo: 'Integer'
+          }]
+      }, {
+        localName: 'RecurringTransactionType',
+        typeName: 'recurringTransactionType'
       }, {
         localName: 'UnloadResponse',
         typeName: null,
@@ -3923,6 +4106,30 @@ var litleBatch_v9_10_Module_Factory = function () {
             type: 'attribute'
           }]
       }, {
+        localName: 'AccountInfoType',
+        typeName: 'accountInfoType',
+        propertyInfos: [{
+            name: 'type',
+            required: true,
+            values: ['MC', 'VI', 'AX', 'DC', 'DI', 'PP', 'JC', 'BL', 'EC', 'GC', '']
+          }, {
+            name: 'number'
+          }]
+      }, {
+        localName: 'EcheckAccountInfoType',
+        typeName: 'echeckAccountInfoType',
+        propertyInfos: [{
+            name: 'accType',
+            required: true,
+            typeInfo: '.EcheckAccountTypeEnum'
+          }, {
+            name: 'accNum',
+            required: true
+          }, {
+            name: 'routingNum',
+            required: true
+          }]
+      }, {
         localName: 'VendorCreditResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
@@ -3945,7 +4152,7 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true
           }]
       }, {
-        localName: 'EcheckPreNoteSaleResponse',
+        localName: 'EcheckVerificationResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -3953,7 +4160,8 @@ var litleBatch_v9_10_Module_Factory = function () {
             required: true,
             typeInfo: 'Long'
           }, {
-            name: 'orderId'
+            name: 'orderId',
+            required: true
           }, {
             name: 'response',
             required: true
@@ -3964,167 +4172,15 @@ var litleBatch_v9_10_Module_Factory = function () {
           }, {
             name: 'message',
             required: true
-          }, {
-            name: 'duplicate',
-            typeInfo: 'Boolean',
-            attributeName: {
-              localPart: 'duplicate'
-            },
-            type: 'attribute'
-          }]
-      }, {
-        localName: 'RecurringTransactionResponseType',
-        typeName: 'recurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'message',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
-          }]
-      }, {
-        localName: 'CreditResponse',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'litleTxnId',
-            required: true,
-            typeInfo: 'Long'
-          }, {
-            name: 'orderId'
-          }, {
-            name: 'response',
-            required: true
-          }, {
-            name: 'responseTime',
-            required: true,
-            typeInfo: 'DateTime'
           }, {
             name: 'postDate',
             typeInfo: 'Date'
           }, {
-            name: 'message',
-            required: true
-          }, {
             name: 'tokenResponse',
             typeInfo: '.TokenResponseType'
-          }, {
-            name: 'fraudResult',
-            typeInfo: '.FraudResult'
-          }, {
-            name: 'giftCardResponse',
-            typeInfo: '.GiftCardResponse'
-          }, {
-            name: 'duplicate',
-            typeInfo: 'Boolean',
-            attributeName: {
-              localPart: 'duplicate'
-            },
-            type: 'attribute'
           }]
       }, {
-        localName: 'UpdateCardValidationNumOnToken',
-        typeName: 'updateCardValidationNumOnToken',
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId'
-          }, {
-            name: 'litleToken',
-            required: true
-          }, {
-            name: 'cardValidationNum',
-            required: true
-          }]
-      }, {
-        localName: 'AccountUpdate',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'orderId',
-            required: true
-          }, {
-            name: 'cardOrToken',
-            required: true,
-            mixed: false,
-            allowDom: false,
-            typeInfo: 'AnyType',
-            type: 'elementRef'
-          }]
-      }, {
-        localName: 'Contact',
-        typeName: 'contact',
-        propertyInfos: [{
-            name: 'name'
-          }, {
-            name: 'firstName'
-          }, {
-            name: 'middleInitial'
-          }, {
-            name: 'lastName'
-          }, {
-            name: 'companyName'
-          }, {
-            name: 'addressLine1'
-          }, {
-            name: 'addressLine2'
-          }, {
-            name: 'addressLine3'
-          }, {
-            name: 'city'
-          }, {
-            name: 'state'
-          }, {
-            name: 'zip'
-          }, {
-            name: 'country'
-          }, {
-            name: 'email'
-          }, {
-            name: 'phone'
-          }]
-      }, {
-        localName: 'CreatePlanResponse',
-        typeName: null,
-        baseTypeInfo: '.RecurringTransactionResponseType',
-        propertyInfos: [{
-            name: 'planCode',
-            required: true
-          }]
-      }, {
-        localName: 'EcheckForTokenType',
-        typeName: 'echeckForTokenType',
-        propertyInfos: [{
-            name: 'accNum',
-            required: true
-          }, {
-            name: 'routingNum',
-            required: true
-          }]
-      }, {
-        localName: 'ReserveDebit',
-        typeName: null,
-        baseTypeInfo: '.TransactionTypeWithReportGroup',
-        propertyInfos: [{
-            name: 'fundingSubmerchantId',
-            required: true
-          }, {
-            name: 'fundsTransferId',
-            required: true
-          }, {
-            name: 'amount',
-            required: true,
-            typeInfo: 'Integer'
-          }]
-      }, {
-        localName: 'SubmerchantCreditResponse',
+        localName: 'ReserveCreditResponse',
         typeName: null,
         baseTypeInfo: '.TransactionTypeWithReportGroup',
         propertyInfos: [{
@@ -4147,44 +4203,24 @@ var litleBatch_v9_10_Module_Factory = function () {
           }]
       }, {
         type: 'enumInfo',
-        localName: 'ReloadablePrepaidTypeEnum',
-        values: ['UNKNOWN', 'YES', 'NO']
-      }, {
-        type: 'enumInfo',
-        localName: 'PosCatLevelEnum',
-        values: ['self service']
-      }, {
-        type: 'enumInfo',
-        localName: 'PosCardholderIdTypeEnum',
-        values: ['signature', 'pin', 'nopin', 'directmarket']
-      }, {
-        type: 'enumInfo',
-        localName: 'AffluenceTypeEnum',
-        values: ['AFFLUENT', 'MASS AFFLUENT']
-      }, {
-        type: 'enumInfo',
-        localName: 'CardProductTypeEnum',
-        values: ['UNKNOWN', 'COMMERCIAL', 'CONSUMER']
+        localName: 'CurrencyCodeEnum',
+        values: ['AUD', 'CAD', 'CHF', 'DKK', 'EUR', 'GBP', 'HKD', 'JPY', 'NOK', 'NZD', 'SEK', 'SGD', 'USD']
       }, {
         type: 'enumInfo',
         localName: 'IntervalTypeEnum',
         values: ['ANNUAL', 'SEMIANNUAL', 'QUARTERLY', 'MONTHLY', 'WEEKLY']
       }, {
         type: 'enumInfo',
-        localName: 'PosEntryModeTypeEnum',
-        values: ['notused', 'keyed', 'track1', 'track2', 'completeread']
+        localName: 'WalletSourceType',
+        values: ['MasterPass', 'VisaCheckout']
       }, {
         type: 'enumInfo',
-        localName: 'ProcessingTypeEnum',
-        values: ['accountFunding', 'initialRecurring', 'initialInstallment']
+        localName: 'CountryTypeEnum',
+        values: ['USA', 'AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'TL', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KP', 'KR', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MK', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'AN', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'RE', 'RO', 'RU', 'RW', 'BL', 'KN', 'LC', 'MF', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'SC', 'SL', 'SG', 'SX', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'ES', 'LK', 'SH', 'PM', 'SD', 'SR', 'SJ', 'SZ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'US', 'UM', 'UY', 'UZ', 'VU', 'VA', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW', 'RS', 'ME', 'SS']
       }, {
         type: 'enumInfo',
-        localName: 'TrialIntervalTypeEnum',
-        values: ['MONTH', 'DAY']
-      }, {
-        type: 'enumInfo',
-        localName: 'CurrencyCodeEnum',
-        values: ['AUD', 'CAD', 'CHF', 'DKK', 'EUR', 'GBP', 'HKD', 'JPY', 'NOK', 'NZD', 'SEK', 'SGD', 'USD']
+        localName: 'PosCapabilityTypeEnum',
+        values: ['notused', 'magstripe', 'keyedonly']
       }, {
         type: 'enumInfo',
         localName: 'RecycleByTypeEnum',
@@ -4195,470 +4231,490 @@ var litleBatch_v9_10_Module_Factory = function () {
         values: ['payment', 'fee']
       }, {
         type: 'enumInfo',
-        localName: 'PosCapabilityTypeEnum',
-        values: ['notused', 'magstripe', 'keyedonly']
+        localName: 'ReloadablePrepaidTypeEnum',
+        values: ['UNKNOWN', 'YES', 'NO']
       }, {
         type: 'enumInfo',
-        localName: 'WalletSourceType',
-        values: ['MasterPass', 'VisaCheckout']
+        localName: 'TrialIntervalTypeEnum',
+        values: ['MONTH', 'DAY']
+      }, {
+        type: 'enumInfo',
+        localName: 'ProcessingTypeEnum',
+        values: ['accountFunding', 'initialRecurring', 'initialInstallment']
       }, {
         type: 'enumInfo',
         localName: 'FundingSourceTypeEnum',
         values: ['UNKNOWN', 'PREPAID', 'FSA', 'CREDIT', 'DEBIT']
       }, {
         type: 'enumInfo',
-        localName: 'EcheckAccountTypeEnum',
-        values: ['Checking', 'Savings', 'Corporate', 'Corp Savings']
+        localName: 'PosEntryModeTypeEnum',
+        values: ['notused', 'keyed', 'track1', 'track2', 'completeread']
       }, {
         type: 'enumInfo',
-        localName: 'CountryTypeEnum',
-        values: ['USA', 'AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'TL', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KP', 'KR', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MK', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'AN', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'RE', 'RO', 'RU', 'RW', 'BL', 'KN', 'LC', 'MF', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'SC', 'SL', 'SG', 'SX', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'ES', 'LK', 'SH', 'PM', 'SD', 'SR', 'SJ', 'SZ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'US', 'UM', 'UY', 'UZ', 'VU', 'VA', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW', 'RS', 'ME', 'SS']
+        localName: 'PosCardholderIdTypeEnum',
+        values: ['signature', 'pin', 'nopin', 'directmarket']
       }, {
         type: 'enumInfo',
         localName: 'IIASFlagType',
         values: ['Y']
+      }, {
+        type: 'enumInfo',
+        localName: 'AffluenceTypeEnum',
+        values: ['AFFLUENT', 'MASS AFFLUENT']
+      }, {
+        type: 'enumInfo',
+        localName: 'PosCatLevelEnum',
+        values: ['self service']
+      }, {
+        type: 'enumInfo',
+        localName: 'EcheckAccountTypeEnum',
+        values: ['Checking', 'Savings', 'Corporate', 'Corp Savings']
+      }, {
+        type: 'enumInfo',
+        localName: 'CardProductTypeEnum',
+        values: ['UNKNOWN', 'COMMERCIAL', 'CONSUMER']
       }],
     elementInfos: [{
-        elementName: 'unload',
-        typeInfo: '.Unload',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'enhancedData',
-        typeInfo: '.EnhancedData'
-      }, {
-        elementName: 'batchRequest',
-        typeInfo: '.BatchRequest'
-      }, {
-        elementName: 'echeckRedepositResponse',
-        typeInfo: '.EcheckRedepositResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'createPlan',
-        typeInfo: '.CreatePlan',
+        typeInfo: '.CancelSubscription',
+        elementName: 'cancelSubscription',
         substitutionHead: 'recurringTransaction'
       }, {
-        elementName: 'accountUpdateFileRequestData',
-        typeInfo: '.AccountUpdateFileRequestData'
-      }, {
-        elementName: 'authReversal',
-        typeInfo: '.AuthReversal',
+        typeInfo: '.VendorDebit',
+        elementName: 'vendorDebit',
         substitutionHead: 'transaction'
       }, {
-        elementName: 'loadResponse',
-        typeInfo: '.LoadResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'shipToAddress',
-        typeInfo: '.Contact'
-      }, {
-        elementName: 'deactivate',
-        typeInfo: '.Deactivate',
+        typeInfo: '.BalanceInquiry',
+        elementName: 'balanceInquiry',
         substitutionHead: 'transaction'
       }, {
-        elementName: 'registerTokenResponse',
-        typeInfo: '.RegisterTokenResponse',
+        typeInfo: '.UpdateCardValidationNumOnTokenResponse',
+        elementName: 'updateCardValidationNumOnTokenResponse',
         substitutionHead: 'transactionResponse'
       }, {
-        elementName: 'processingInstructions',
-        typeInfo: '.ProcessingInstructions'
+        typeInfo: '.PhysicalCheckCredit',
+        elementName: 'physicalCheckCredit',
+        substitutionHead: 'transaction'
       }, {
-        elementName: 'capture',
+        typeInfo: '.LineItemData',
+        elementName: 'lineItemData'
+      }, {
+        typeInfo: '.BatchResponse',
+        elementName: 'batchResponse'
+      }, {
+        typeInfo: '.UpdatePlan',
+        elementName: 'updatePlan',
+        substitutionHead: 'recurringTransaction'
+      }, {
         typeInfo: '.Capture',
+        elementName: 'capture',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.UnloadResponse',
+        elementName: 'unloadResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.LitleRequest',
+        elementName: 'litleRequest'
+      }, {
+        typeInfo: 'AnyType',
+        elementName: 'cardOrToken'
+      }, {
+        typeInfo: '.Load',
+        elementName: 'load',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.AuthorizationResponse',
+        elementName: 'authorizationResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.ForceCapture',
+        elementName: 'forceCapture',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.DetailTax',
+        elementName: 'detailTax'
+      }, {
+        typeInfo: '.EcheckRedeposit',
+        elementName: 'echeckRedeposit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.AccountUpdate',
+        elementName: 'accountUpdate',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.FraudCheckResponse',
+        elementName: 'fraudCheckResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Deactivate',
+        elementName: 'deactivate',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.UpdateCardValidationNumOnToken',
+        elementName: 'updateCardValidationNumOnToken',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.EcheckCredit',
+        elementName: 'echeckCredit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.ForceCaptureResponse',
+        elementName: 'forceCaptureResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.CustomBilling',
+        elementName: 'customBilling'
+      }, {
+        typeInfo: '.FraudCheck',
+        elementName: 'fraudCheck',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.LitleResponse',
+        elementName: 'litleResponse'
+      }, {
+        typeInfo: '.RFRResponse',
+        elementName: 'RFRResponse'
+      }, {
+        typeInfo: '.CancelSubscriptionResponse',
+        elementName: 'cancelSubscriptionResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        typeInfo: '.DeactivateReversalResponse',
+        elementName: 'deactivateReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.PhysicalCheckDebit',
+        elementName: 'physicalCheckDebit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.CustomerInfo',
+        elementName: 'customerInfo'
+      }, {
+        typeInfo: '.RFRRequest',
+        elementName: 'RFRRequest'
+      }, {
+        typeInfo: '.Contact',
+        elementName: 'billToAddress'
+      }, {
+        typeInfo: '.EcheckTokenType',
+        elementName: 'echeckToken',
+        substitutionHead: 'echeckOrEcheckToken'
+      }, {
+        typeInfo: '.Wallet',
+        elementName: 'wallet'
+      }, {
+        typeInfo: '.EcheckSalesResponse',
+        elementName: 'echeckSalesResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.UpdatePlanResponse',
+        elementName: 'updatePlanResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        typeInfo: '.EcheckPreNoteSaleResponse',
+        elementName: 'echeckPreNoteSaleResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.PhysicalCheckCreditResponse',
+        elementName: 'physicalCheckCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.AmexAggregatorData',
+        elementName: 'amexAggregatorData'
+      }, {
+        typeInfo: '.ActivateReversalResponse',
+        elementName: 'activateReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.ReserveCredit',
+        elementName: 'reserveCredit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.SubmerchantDebit',
+        elementName: 'submerchantDebit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.VendorDebitResponse',
+        elementName: 'vendorDebitResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.ActivateResponse',
+        elementName: 'activateResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Credit',
+        elementName: 'credit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.PayFacDebit',
+        elementName: 'payFacDebit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.RegisterTokenResponse',
+        elementName: 'registerTokenResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.EcheckPreNoteCreditResponse',
+        elementName: 'echeckPreNoteCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Authentication',
+        elementName: 'authentication'
+      }, {
+        typeInfo: '.EcheckPreNoteSale',
+        elementName: 'echeckPreNoteSale',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.BillMeLaterRequest',
+        elementName: 'billMeLaterRequest'
+      }, {
+        typeInfo: '.CaptureResponse',
+        elementName: 'captureResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.EcheckRedepositResponse',
+        elementName: 'echeckRedepositResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.RefundReversalResponse',
+        elementName: 'refundReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.UpdateSubscriptionResponse',
+        elementName: 'updateSubscriptionResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        typeInfo: '.EcheckCreditResponse',
+        elementName: 'echeckCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.CaptureGivenAuthResponse',
+        elementName: 'captureGivenAuthResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Contact',
+        elementName: 'shipToAddress'
+      }, {
+        typeInfo: '.TransactionType',
+        elementName: 'transaction'
+      }, {
+        typeInfo: '.EcheckPreNoteCredit',
+        elementName: 'echeckPreNoteCredit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.FraudResult',
+        elementName: 'fraudResult'
+      }, {
+        typeInfo: '.PayFacDebitResponse',
+        elementName: 'payFacDebitResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Authorization',
+        elementName: 'authorization',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: 'AnyType',
+        elementName: 'echeckOrEcheckToken'
+      }, {
+        typeInfo: '.LoadReversalResponse',
+        elementName: 'loadReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.AndroidpayResponse',
+        elementName: 'androidpayResponse'
+      }, {
+        typeInfo: '.CardType',
+        elementName: 'card',
+        substitutionHead: 'cardOrToken'
+      }, {
+        typeInfo: '.VirtualGiftCardResponse',
+        elementName: 'virtualGiftCardResponse'
+      }, {
+        typeInfo: '.BalanceInquiryResponse',
+        elementName: 'balanceInquiryResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.DepositReversalResponse',
+        elementName: 'depositReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.CaptureGivenAuth',
+        elementName: 'captureGivenAuth',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.SaleResponse',
+        elementName: 'saleResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Activate',
+        elementName: 'activate',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.EcheckVerification',
+        elementName: 'echeckVerification',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.CreatePlanResponse',
+        elementName: 'createPlanResponse',
+        substitutionHead: 'recurringTransactionResponse'
+      }, {
+        typeInfo: '.HealthcareIIAS',
+        elementName: 'healthcareIIAS'
+      }, {
+        typeInfo: '.VendorCreditResponse',
+        elementName: 'vendorCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.PayFacCreditResponse',
+        elementName: 'payFacCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.SubmerchantCredit',
+        elementName: 'submerchantCredit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.DeactivateResponse',
+        elementName: 'deactivateResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.RecurringTransactionResponseType',
+        elementName: 'recurringTransactionResponse'
+      }, {
+        typeInfo: '.LoadResponse',
+        elementName: 'loadResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.SubmerchantCreditResponse',
+        elementName: 'submerchantCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.EcheckType',
+        elementName: 'echeck',
+        substitutionHead: 'echeckOrEcheckToken'
+      }, {
+        typeInfo: '.PhysicalCheckDebitResponse',
+        elementName: 'physicalCheckDebitResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.EcheckVerificationResponse',
+        elementName: 'echeckVerificationResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.ReserveDebitResponse',
+        elementName: 'reserveDebitResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.ReserveDebit',
+        elementName: 'reserveDebit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.EnhancedAuthResponse',
+        elementName: 'enhancedAuthResponse'
+      }, {
+        typeInfo: '.AccountUpdater',
+        elementName: 'accountUpdater'
+      }, {
+        typeInfo: '.ReserveCreditResponse',
+        elementName: 'reserveCreditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.AccountUpdateFileRequestData',
+        elementName: 'accountUpdateFileRequestData'
+      }, {
+        typeInfo: '.Pos',
+        elementName: 'pos'
+      }, {
+        typeInfo: '.RecurringTransactionType',
+        elementName: 'recurringTransaction'
+      }, {
+        typeInfo: '.AccountUpdateResponse',
+        elementName: 'accountUpdateResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.SubmerchantDebitResponse',
+        elementName: 'submerchantDebitResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.Sale',
+        elementName: 'sale',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.ApplepayResponse',
+        elementName: 'applepayResponse'
+      }, {
+        typeInfo: '.AuthReversal',
+        elementName: 'authReversal',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.GiftCardResponse',
+        elementName: 'giftCardResponse'
+      }, {
+        typeInfo: '.BillMeLaterResponseData',
+        elementName: 'billMeLaterResponseData'
+      }, {
+        typeInfo: '.CardTokenType',
+        elementName: 'token',
+        substitutionHead: 'cardOrToken'
+      }, {
+        typeInfo: '.AuthReversalResponse',
+        elementName: 'authReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.EcheckSale',
+        elementName: 'echeckSale',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.VendorCredit',
+        elementName: 'vendorCredit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.CreditResponse',
+        elementName: 'creditResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.TransactionTypeWithReportGroup',
+        elementName: 'transactionResponse'
+      }, {
+        typeInfo: '.Unload',
+        elementName: 'unload',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.UpdateSubscription',
+        elementName: 'updateSubscription',
+        substitutionHead: 'recurringTransaction'
+      }, {
+        typeInfo: '.HealthcareAmounts',
+        elementName: 'healthcareAmounts'
+      }, {
+        typeInfo: '.AuthInformation',
+        elementName: 'authInformation'
+      }, {
+        typeInfo: '.CreatePlan',
+        elementName: 'createPlan',
+        substitutionHead: 'recurringTransaction'
+      }, {
+        typeInfo: '.ProcessingInstructions',
+        elementName: 'processingInstructions'
+      }, {
+        typeInfo: '.BatchRequest',
+        elementName: 'batchRequest'
+      }, {
+        typeInfo: '.EnhancedData',
+        elementName: 'enhancedData'
+      }, {
+        typeInfo: '.PayFacCredit',
+        elementName: 'payFacCredit',
+        substitutionHead: 'transaction'
+      }, {
+        typeInfo: '.UnloadReversalResponse',
+        elementName: 'unloadReversalResponse',
+        substitutionHead: 'transactionResponse'
+      }, {
+        typeInfo: '.RegisterTokenRequestType',
+        elementName: 'registerTokenRequest',
         substitutionHead: 'transaction'
       }, {
         elementName: 'bmlProductType'
-      }, {
-        elementName: 'vendorCredit',
-        typeInfo: '.VendorCredit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'amexAggregatorData',
-        typeInfo: '.AmexAggregatorData'
-      }, {
-        elementName: 'echeckVerification',
-        typeInfo: '.EcheckVerification',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'fraudCheck',
-        typeInfo: '.FraudCheck',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'updateCardValidationNumOnTokenResponse',
-        typeInfo: '.UpdateCardValidationNumOnTokenResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'pos',
-        typeInfo: '.Pos'
-      }, {
-        elementName: 'customBilling',
-        typeInfo: '.CustomBilling'
-      }, {
-        elementName: 'activate',
-        typeInfo: '.Activate',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'litleRequest',
-        typeInfo: '.LitleRequest'
-      }, {
-        elementName: 'echeckRedeposit',
-        typeInfo: '.EcheckRedeposit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'echeckSale',
-        typeInfo: '.EcheckSale',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'captureResponse',
-        typeInfo: '.CaptureResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'echeckPreNoteCreditResponse',
-        typeInfo: '.EcheckPreNoteCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'physicalCheckCredit',
-        typeInfo: '.PhysicalCheckCredit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'updateCardValidationNumOnToken',
-        typeInfo: '.UpdateCardValidationNumOnToken',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'accountUpdate',
-        typeInfo: '.AccountUpdate',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'authInformation',
-        typeInfo: '.AuthInformation'
-      }, {
-        elementName: 'accountUpdater',
-        typeInfo: '.AccountUpdater'
-      }, {
-        elementName: 'activateReversalResponse',
-        typeInfo: '.ActivateReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'payFacDebit',
-        typeInfo: '.PayFacDebit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'updatePlanResponse',
-        typeInfo: '.UpdatePlanResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'billMeLaterResponseData',
-        typeInfo: '.BillMeLaterResponseData'
-      }, {
-        elementName: 'accountUpdateResponse',
-        typeInfo: '.AccountUpdateResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'physicalCheckCreditResponse',
-        typeInfo: '.PhysicalCheckCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'echeckPreNoteCredit',
-        typeInfo: '.EcheckPreNoteCredit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'submerchantDebitResponse',
-        typeInfo: '.SubmerchantDebitResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'echeck',
-        typeInfo: '.EcheckType',
-        substitutionHead: 'echeckOrEcheckToken'
-      }, {
-        elementName: 'deactivateResponse',
-        typeInfo: '.DeactivateResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'fraudResult',
-        typeInfo: '.FraudResult'
-      }, {
-        elementName: 'createPlanResponse',
-        typeInfo: '.CreatePlanResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'RFRRequest',
-        typeInfo: '.RFRRequest'
-      }, {
-        elementName: 'refundReversalResponse',
-        typeInfo: '.RefundReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'billToAddress',
-        typeInfo: '.Contact'
-      }, {
-        elementName: 'virtualGiftCardResponse',
-        typeInfo: '.VirtualGiftCardResponse'
-      }, {
-        elementName: 'creditResponse',
-        typeInfo: '.CreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'sale',
-        typeInfo: '.Sale',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'physicalCheckDebitResponse',
-        typeInfo: '.PhysicalCheckDebitResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'echeckPreNoteSaleResponse',
-        typeInfo: '.EcheckPreNoteSaleResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'customerInfo',
-        typeInfo: '.CustomerInfo'
-      }, {
-        elementName: 'transactionResponse',
-        typeInfo: '.TransactionTypeWithReportGroup'
-      }, {
-        elementName: 'lineItemData',
-        typeInfo: '.LineItemData'
-      }, {
-        elementName: 'unloadReversalResponse',
-        typeInfo: '.UnloadReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'RFRResponse',
-        typeInfo: '.RFRResponse'
-      }, {
-        elementName: 'echeckVerificationResponse',
-        typeInfo: '.EcheckVerificationResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'depositReversalResponse',
-        typeInfo: '.DepositReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'payFacCreditResponse',
-        typeInfo: '.PayFacCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'cancelSubscriptionResponse',
-        typeInfo: '.CancelSubscriptionResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'applepayResponse',
-        typeInfo: '.ApplepayResponse'
-      }, {
-        elementName: 'echeckSalesResponse',
-        typeInfo: '.EcheckSalesResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'enhancedAuthResponse',
-        typeInfo: '.EnhancedAuthResponse'
-      }, {
-        elementName: 'updatePlan',
-        typeInfo: '.UpdatePlan',
-        substitutionHead: 'recurringTransaction'
-      }, {
-        elementName: 'submerchantCreditResponse',
-        typeInfo: '.SubmerchantCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'litleResponse',
-        typeInfo: '.LitleResponse'
-      }, {
-        elementName: 'forceCaptureResponse',
-        typeInfo: '.ForceCaptureResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'vendorCreditResponse',
-        typeInfo: '.VendorCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'physicalCheckDebit',
-        typeInfo: '.PhysicalCheckDebit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'vendorDebit',
-        typeInfo: '.VendorDebit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'recurringTransaction',
-        typeInfo: '.RecurringTransactionType'
-      }, {
-        elementName: 'deactivateReversalResponse',
-        typeInfo: '.DeactivateReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'reserveDebitResponse',
-        typeInfo: '.ReserveDebitResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'vendorDebitResponse',
-        typeInfo: '.VendorDebitResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'unloadResponse',
-        typeInfo: '.UnloadResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'authReversalResponse',
-        typeInfo: '.AuthReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'forceCapture',
-        typeInfo: '.ForceCapture',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'captureGivenAuthResponse',
-        typeInfo: '.CaptureGivenAuthResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'credit',
-        typeInfo: '.Credit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'echeckCredit',
-        typeInfo: '.EcheckCredit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'token',
-        typeInfo: '.CardTokenType',
-        substitutionHead: 'cardOrToken'
-      }, {
-        elementName: 'updateSubscriptionResponse',
-        typeInfo: '.UpdateSubscriptionResponse',
-        substitutionHead: 'recurringTransactionResponse'
-      }, {
-        elementName: 'payFacCredit',
-        typeInfo: '.PayFacCredit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'echeckPreNoteSale',
-        typeInfo: '.EcheckPreNoteSale',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'detailTax',
-        typeInfo: '.DetailTax'
-      }, {
-        elementName: 'balanceInquiryResponse',
-        typeInfo: '.BalanceInquiryResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'activateResponse',
-        typeInfo: '.ActivateResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'payFacDebitResponse',
-        typeInfo: '.PayFacDebitResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'authentication',
-        typeInfo: '.Authentication'
-      }, {
-        elementName: 'echeckCreditResponse',
-        typeInfo: '.EcheckCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'submerchantDebit',
-        typeInfo: '.SubmerchantDebit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'reserveCreditResponse',
-        typeInfo: '.ReserveCreditResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'billMeLaterRequest',
-        typeInfo: '.BillMeLaterRequest'
-      }, {
-        elementName: 'fraudCheckResponse',
-        typeInfo: '.FraudCheckResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'giftCardResponse',
-        typeInfo: '.GiftCardResponse'
-      }, {
-        elementName: 'recurringTransactionResponse',
-        typeInfo: '.RecurringTransactionResponseType'
-      }, {
-        elementName: 'cardOrToken',
-        typeInfo: 'AnyType'
-      }, {
-        elementName: 'echeckToken',
-        typeInfo: '.EcheckTokenType',
-        substitutionHead: 'echeckOrEcheckToken'
-      }, {
-        elementName: 'wallet',
-        typeInfo: '.Wallet'
-      }, {
-        elementName: 'captureGivenAuth',
-        typeInfo: '.CaptureGivenAuth',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'authorization',
-        typeInfo: '.Authorization',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'card',
-        typeInfo: '.CardType',
-        substitutionHead: 'cardOrToken'
-      }, {
-        elementName: 'authorizationResponse',
-        typeInfo: '.AuthorizationResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'registerTokenRequest',
-        typeInfo: '.RegisterTokenRequestType',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'reserveDebit',
-        typeInfo: '.ReserveDebit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'saleResponse',
-        typeInfo: '.SaleResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'androidpayResponse',
-        typeInfo: '.AndroidpayResponse'
-      }, {
-        elementName: 'load',
-        typeInfo: '.Load',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'cancelSubscription',
-        typeInfo: '.CancelSubscription',
-        substitutionHead: 'recurringTransaction'
-      }, {
-        elementName: 'echeckOrEcheckToken',
-        typeInfo: 'AnyType'
-      }, {
-        elementName: 'batchResponse',
-        typeInfo: '.BatchResponse'
-      }, {
-        elementName: 'reserveCredit',
-        typeInfo: '.ReserveCredit',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'updateSubscription',
-        typeInfo: '.UpdateSubscription',
-        substitutionHead: 'recurringTransaction'
-      }, {
-        elementName: 'healthcareIIAS',
-        typeInfo: '.HealthcareIIAS'
-      }, {
-        elementName: 'transaction',
-        typeInfo: '.TransactionType'
-      }, {
-        elementName: 'loadReversalResponse',
-        typeInfo: '.LoadReversalResponse',
-        substitutionHead: 'transactionResponse'
-      }, {
-        elementName: 'healthcareAmounts',
-        typeInfo: '.HealthcareAmounts'
-      }, {
-        elementName: 'balanceInquiry',
-        typeInfo: '.BalanceInquiry',
-        substitutionHead: 'transaction'
-      }, {
-        elementName: 'submerchantCredit',
-        typeInfo: '.SubmerchantCredit',
-        substitutionHead: 'transaction'
       }]
   };
   return {
