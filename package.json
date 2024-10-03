@@ -23,7 +23,7 @@
     "@mitre/jsonix": "^3.0.7"
   },
   "scripts": {
-    "test": "mocha --reporter spec test/*.js",
+    "test": "mocha --reporter spec test/*.mjs",
     "generate": "node bin/generate"
   }
 }

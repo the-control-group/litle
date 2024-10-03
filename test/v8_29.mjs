@@ -1,14 +1,15 @@
-'use strict';
+import { assert } from 'chai';
+import Litle from '../lib/Litle.js';
 
-var litle = require('../lib/Litle.js')({
+const litle = Litle({
 	user: 'test_user',
 	password: 'test_password',
 	url: 'https://www.testvantivcnp.com/sandbox/communicator/online',
-	version: '9.10'
+	version: '8.29'
 });
-var assert = require('chai').assert;
 
-describe('Litle v9.10', function() {
+
+describe('Litle v8.29', function() {
 
 	var token;
 	var validAuth, validCapture, validSale;

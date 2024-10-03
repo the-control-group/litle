@@ -1,4 +1,4 @@
-var Jsonix = require('jsonix').Jsonix;
+var Jsonix = require('@mitre/jsonix').Jsonix;
 var mapping = require('./testxsd.js').testxsd;
 var context = new Jsonix.Context([mapping], {
 	mappingStyle: 'simplified',
