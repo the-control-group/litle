@@ -10,5 +10,6 @@ This code makes heavy use of [jsonix](https://github.com/mitre/jsonix) to genera
 To add a new version, simply drop the XSD files in the `xsd` directory, add any relevant `jaxb` customizations to a file in the `bindings` directory, and run:
 
 ```bash
-npm run generate
+docker compose run --rm --build generate
 ```
+

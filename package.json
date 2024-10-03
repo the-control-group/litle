@@ -16,6 +16,7 @@
   "main": "lib/Litle.js",
   "devDependencies": {
     "chai": "^5.1.1",
+    "jsonix-schema-compiler": "^2.3.9",
     "mocha": "^10.7.3"
   },
   "dependencies": {
