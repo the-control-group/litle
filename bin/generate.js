@@ -10,7 +10,7 @@ fs.readdirSync('./xsd')
 	.forEach((x) => {
 		const [filename, pkgName, pkgVersion] = x;
 		const child = spawn('java', [
-			'-jar', 'node_modules/jsonix/lib/jsonix-schema-compiler-full.jar',
+			'-jar', 'node_modules/jsonix-schema-compiler/lib/jsonix-schema-compiler-full.jar',
 
 			// output to the mappings directory
 			'-d', 'mappings',
@@ -33,6 +33,10 @@ fs.readdirSync('./xsd')
 		// error and assuming that the presence of any logs indicate a failure.
 		var code = 0;
 		child.stdout.on('data', (data) => {
+			console.log(`${filename}: ${data}`);
+		});
+
+		child.stderr.on('data', (data) => {
 			code = 1;
 			console.error(`${filename}: ${data}`);
 		});

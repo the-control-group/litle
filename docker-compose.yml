@@ -1,0 +1,8 @@
+services:
+  generate:
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
